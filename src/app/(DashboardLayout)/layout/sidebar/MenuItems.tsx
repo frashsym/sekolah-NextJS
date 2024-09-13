@@ -126,6 +126,8 @@ const Menuitems = [
     title: "Modul Interaksi",
     icon: IconLayoutGrid,
     href: "#",
+    // Menambahkan properti CSS untuk mencegah teks turun ke baris berikutnya
+    style: { whiteSpace: "nowrap" }, // Tambahkan ini
     children: [
       // Cuma buat ngetes bisa ngga
       { id: uniqueId(), href: "/menu-utama", name: "Agenda" },
