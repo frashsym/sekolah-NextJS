@@ -1,20 +1,12 @@
-import {
-  IconBoxMultiple,
-  IconCircleDot,
-  IconHome,
-  IconInfoCircle,
-  IconLayout,
-  IconLayoutGrid,
-  IconPhoto,
-  IconPoint,
-  IconStar,
-  IconTable,
-  IconUser,
-} from "@tabler/icons-react";
+import { IconHome, IconUser } from "@tabler/icons-react";
+import { CgWebsite } from "react-icons/cg";
+import { MdOndemandVideo } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { IoNewspaperOutline } from "react-icons/io5";
+import { IoNewspaperOutline, IoSchoolSharp } from "react-icons/io5";
 import { RiAdvertisementLine } from "react-icons/ri";
-
+import { SlScreenDesktop } from "react-icons/sl";
+import { FaUserEdit } from "react-icons/fa";
+import { RiLogoutBoxLine } from "react-icons/ri";
 import { uniqueId } from "lodash";
 
 const Menuitems = [
@@ -28,9 +20,8 @@ const Menuitems = [
     id: uniqueId(),
     title: "Menu Utama",
     icon: GiHamburgerMenu,
-    href: "#", // Tambahkan ini
+    href: "#",
     children: [
-      // Cuma buat ngetes bisa ngga
       {
         id: uniqueId(),
         name: "Identitas Website",
@@ -48,15 +39,18 @@ const Menuitems = [
     id: uniqueId(),
     title: "Modul Berita",
     icon: IoNewspaperOutline,
-    href: "#", // Tambahkan ini
+    href: "#",
     children: [
-      // Cuma buat ngetes bisa ngga
       {
         id: uniqueId(),
         name: "Identitas",
         href: "/menu-utama/identitas-website",
       },
-      { id: uniqueId(), name: "Kategori Berita", href: "/menu-utama/menu-utama" },
+      {
+        id: uniqueId(),
+        name: "Kategori Berita",
+        href: "/menu-utama/menu-utama",
+      },
       {
         id: uniqueId(),
         name: "Tag Berita",
@@ -87,7 +81,7 @@ const Menuitems = [
   {
     id: uniqueId(),
     title: "Modul Video",
-    icon: RiAdvertisementLine,
+    icon: MdOndemandVideo,
     href: "#",
     children: [
       { id: uniqueId(), href: "/menu-utama", name: "Playlist Video" },
@@ -99,10 +93,9 @@ const Menuitems = [
   {
     id: uniqueId(),
     title: "Modul Iklan",
-    icon: IconPhoto,
-    href: "#", // Tambahkan ini
+    icon: RiAdvertisementLine,
+    href: "#",
     children: [
-      // Cuma buat ngetes bisa ngga
       { id: uniqueId(), href: "/menu-utama", name: "Iklan Atas" },
       { id: uniqueId(), href: "/ui-components/images", name: "Iklan Home" },
       { id: uniqueId(), href: "/ui-components/images", name: "Iklan Sidebar" },
@@ -112,28 +105,37 @@ const Menuitems = [
   {
     id: uniqueId(),
     title: "Modul Web",
-    icon: IconUser,
+    icon: CgWebsite,
     href: "#",
     children: [
-      // Cuma buat ngetes bisa ngga
       { id: uniqueId(), href: "/menu-utama", name: "Logo Website" },
-      { id: uniqueId(), href: "/ui-components/images", name: "Template Website" },
-      { id: uniqueId(), href: "/ui-components/images", name: "Background Website" },
+      {
+        id: uniqueId(),
+        href: "/ui-components/images",
+        name: "Template Website",
+      },
+      {
+        id: uniqueId(),
+        href: "/ui-components/images",
+        name: "Background Website",
+      },
     ],
   },
   {
     id: uniqueId(),
     title: "Modul Interaksi",
-    icon: IconLayoutGrid,
+    icon: SlScreenDesktop,
     href: "#",
-    // Menambahkan properti CSS untuk mencegah teks turun ke baris berikutnya
-    style: { whiteSpace: "nowrap" }, // Tambahkan ini
+    style: { whiteSpace: "nowrap" },
     children: [
-      // Cuma buat ngetes bisa ngga
       { id: uniqueId(), href: "/menu-utama", name: "Agenda" },
       { id: uniqueId(), href: "/ui-components/images", name: "Sekilas Info" },
       { id: uniqueId(), href: "/ui-components/images", name: "Jajak Pendapat" },
-      { id: uniqueId(), href: "/ui-components/images", name: "Yahoo Messanger" },
+      {
+        id: uniqueId(),
+        href: "/ui-components/images",
+        name: "Yahoo Messanger",
+      },
       { id: uniqueId(), href: "/ui-components/images", name: "Download Video" },
       { id: uniqueId(), href: "/ui-components/images", name: "Alamat Kontak" },
       { id: uniqueId(), href: "/ui-components/images", name: "Pesan Masuk" },
@@ -142,21 +144,23 @@ const Menuitems = [
   {
     id: uniqueId(),
     title: "Modul Users",
-    icon: IconLayoutGrid,
+    icon: IconUser,
     href: "#",
     children: [
-      // Cuma buat ngetes bisa ngga
       { id: uniqueId(), href: "/menu-utama", name: "Manajemen User" },
-      { id: uniqueId(), href: "/ui-components/images", name: "Manajemen Modul" },
+      {
+        id: uniqueId(),
+        href: "/ui-components/images",
+        name: "Manajemen Modul",
+      },
     ],
   },
   {
     id: uniqueId(),
     title: "Modul Sekolah",
-    icon: IconLayoutGrid,
+    icon: IoSchoolSharp,
     href: "#",
     children: [
-      // Cuma buat ngetes bisa ngga
       { id: uniqueId(), href: "/menu-utama", name: "Pengumuman" },
       { id: uniqueId(), href: "/ui-components/images", name: "Link Terkait" },
       { id: uniqueId(), href: "/ui-components/images", name: "Data Alumni" },
@@ -165,20 +169,17 @@ const Menuitems = [
   {
     id: uniqueId(),
     title: "Edit Profile",
-    icon: IconHome,
+    icon: FaUserEdit,
     href: "/",
-    // Menambahkan properti untuk menyelaraskan ikon
-    align: "left", // Tambahkan ini
+    align: "left",
   },
   {
     id: uniqueId(),
     title: "Logout",
-    icon: IconHome,
+    icon: RiLogoutBoxLine,
     href: "/",
-    // Menambahkan properti untuk menyelaraskan ikon
-    align: "left", // Tambahkan ini
+    align: "left",
   },
-
 ];
 
 export default Menuitems;
