@@ -49,7 +49,7 @@ const Menuitems = [
       {
         id: uniqueId(),
         name: "Kategori Berita",
-        href: "/menu-utama/menu-utama",
+        href: "/menu-utama/menu-website",
       },
       {
         id: uniqueId(),
