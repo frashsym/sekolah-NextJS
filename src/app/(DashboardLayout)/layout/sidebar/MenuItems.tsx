@@ -170,14 +170,14 @@ const Menuitems = [
     id: uniqueId(),
     title: "Edit Profile",
     icon: FaUserEdit,
-    href: "/",
+    href: "/ab",
     align: "left",
   },
   {
     id: uniqueId(),
     title: "Logout",
     icon: RiLogoutBoxLine,
-    href: "/",
+    href: "/abc",
     align: "left",
   },
 ];
