@@ -147,10 +147,10 @@ const Menuitems = [
     icon: IconUser,
     href: "#",
     children: [
-      { id: uniqueId(), href: "/menu-utama", name: "Manajemen User" },
+      { id: uniqueId(), href: "/modul-users/manajemen-user", name: "Manajemen User" },
       {
         id: uniqueId(),
-        href: "/ui-components/images",
+        href: "/modul-users/manajemen-modul",
         name: "Manajemen Modul",
       },
     ],
