@@ -54,6 +54,7 @@ const WebsiteIdentityForm = () => {
           ) : (
             <div key={key} style={{ marginBottom: '20px' }}>
               <label>FAVICON</label>
+              <br />
               <input type="file" name={key} onChange={handleChange} />
               {formData.favicon && (
                 <div>
