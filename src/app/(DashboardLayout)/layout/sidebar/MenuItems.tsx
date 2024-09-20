@@ -96,10 +96,10 @@ const Menuitems = [
     icon: RiAdvertisementLine,
     href: "#",
     children: [
-      { id: uniqueId(), href: "/menu-utama", name: "Iklan Atas" },
-      { id: uniqueId(), href: "/ui-components/images", name: "Iklan Home" },
-      { id: uniqueId(), href: "/ui-components/images", name: "Iklan Sidebar" },
-      { id: uniqueId(), href: "/ui-components/images", name: "Iklan Link" },
+      { id: uniqueId(), href: "/modul-iklan/iklan-atas", name: "Iklan Atas" },
+      { id: uniqueId(), href: "/modul-iklan/iklan-home", name: "Iklan Home" },
+      { id: uniqueId(), href: "/modul-iklan/iklan-sidebar", name: "Iklan Sidebar" },
+      { id: uniqueId(), href: "/modul-iklan/iklan-link", name: "Iklan Link" },
     ],
   },
   {
