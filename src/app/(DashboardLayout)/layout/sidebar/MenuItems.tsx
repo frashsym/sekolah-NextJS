@@ -84,10 +84,10 @@ const Menuitems = [
     icon: MdOndemandVideo,
     href: "#",
     children: [
-      { id: uniqueId(), href: "/menu-utama", name: "Playlist Video" },
-      { id: uniqueId(), href: "/ui-components/images", name: "Video" },
-      { id: uniqueId(), href: "/ui-components/images", name: "Tag Video" },
-      { id: uniqueId(), href: "/ui-components/images", name: "Komentar Video" },
+      { id: uniqueId(), href: "/modul-video/playlist", name: "Playlist Video" },
+      { id: uniqueId(), href: "/modul-sekolah/video", name: "Video" },
+      { id: uniqueId(), href: "/modul-sekolah/tag-video", name: "Tag Video" },
+      { id: uniqueId(), href: "/modul-sekolah/komentar-video", name: "Komentar Video" },
     ],
   },
   {
