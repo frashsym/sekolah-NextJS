@@ -85,9 +85,9 @@ const Menuitems = [
     href: "#",
     children: [
       { id: uniqueId(), href: "/modul-video/playlist", name: "Playlist Video" },
-      { id: uniqueId(), href: "/modul-sekolah/video", name: "Video" },
-      { id: uniqueId(), href: "/modul-sekolah/tag-video", name: "Tag Video" },
-      { id: uniqueId(), href: "/modul-sekolah/komentar-video", name: "Komentar Video" },
+      { id: uniqueId(), href: "/modul-video/video", name: "Video" },
+      { id: uniqueId(), href: "/modul-video/tag-video", name: "Tag Video" },
+      { id: uniqueId(), href: "/modul-video/komentar-video", name: "Komentar Video" },
     ],
   },
   {
