@@ -108,15 +108,15 @@ const Menuitems = [
     icon: CgWebsite,
     href: "#",
     children: [
-      { id: uniqueId(), href: "/menu-utama", name: "Logo Website" },
+      { id: uniqueId(), href: "/modul-web/logo-web", name: "Logo Website" },
       {
         id: uniqueId(),
-        href: "/ui-components/images",
+        href: "/modul-web/template-web",
         name: "Template Website",
       },
       {
         id: uniqueId(),
-        href: "/ui-components/images",
+        href: "/modul-web/background-web",
         name: "Background Website",
       },
     ],
