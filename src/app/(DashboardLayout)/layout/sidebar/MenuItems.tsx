@@ -17,22 +17,14 @@ const Menuitems = [
     href: "/",
   },
   {
-    id: uniqueId(),
+   id: uniqueId(),
     title: "Menu Utama",
     icon: GiHamburgerMenu,
     href: "#",
     children: [
-      {
-        id: uniqueId(),
-        name: "Identitas Website",
-        href: "/menu-utama/identitas-website",
-      },
-      { id: uniqueId(), name: "Menu Website", href: "/menu-utama/menu-utama" },
-      {
-        id: uniqueId(),
-        name: "Halaman Baru",
-        href: "/menu-utama/halaman-baru",
-      },
+      { id: uniqueId(), name: "Identitas Website", href: "/menu-utama/identitas-website" },
+      { id: uniqueId(), name: "Menu Website", href: "/menu-utama/menu-website" },
+      { id: uniqueId(), name: "Halaman Baru", href: "/menu-utama/halaman-baru" },
     ],
   },
   {
@@ -41,41 +33,13 @@ const Menuitems = [
     icon: IoNewspaperOutline,
     href: "#",
     children: [
-      {
-        id: uniqueId(),
-        name: "Identitas",
-        href: "/menu-utama/identitas-website",
-      },
-      {
-        id: uniqueId(),
-        name: "Kategori Berita",
-        href: "/menu-utama/menu-website",
-      },
-      {
-        id: uniqueId(),
-        name: "Tag Berita",
-        href: "/menu-utama/halaman-baru",
-      },
-      {
-        id: uniqueId(),
-        name: "Komentar Berita",
-        href: "/menu-utama/halaman-baru",
-      },
-      {
-        id: uniqueId(),
-        name: "Sensor Komentar",
-        href: "/menu-utama/halaman-baru",
-      },
-      {
-        id: uniqueId(),
-        name: "Berita Foto",
-        href: "/menu-utama/halaman-baru",
-      },
-      {
-        id: uniqueId(),
-        name: "Gallery Berita Foto",
-        href: "/menu-utama/halaman-baru",
-      },
+      { id: uniqueId(), name: "Identitas", href: "/modul-berita/identitas"},
+      { id: uniqueId(), name: "Kategori Berita", href: "/modul-berita/kategori-berita"},
+      { id: uniqueId(), name: "Tag Berita", href: "/modul-berita/tag-berita"},
+      { id: uniqueId(), name: "Komentar Berita",  href: "/modul-berita/komentar-berita"},
+      { id: uniqueId(), name: "Sensor Komentar", href: "/modul-berita/sensor-komentar"},
+      { id: uniqueId(), name: "Berita Foto", href: "/modul-berita/berita-baru" },
+      { id: uniqueId(), name: "Gallery Berita Foto", href: "/modul-berita/halaman-baru" },
     ],
   },
   {
@@ -109,16 +73,8 @@ const Menuitems = [
     href: "#",
     children: [
       { id: uniqueId(), href: "/modul-web/logo-web", name: "Logo Website" },
-      {
-        id: uniqueId(),
-        href: "/modul-web/template-web",
-        name: "Template Website",
-      },
-      {
-        id: uniqueId(),
-        href: "/modul-web/background-web",
-        name: "Background Website",
-      },
+      { id: uniqueId(), href: "/modul-web/template-web", name: "Template Website"},
+      { id: uniqueId(), href: "/modul-web/background-web", name: "Background Website"},
     ],
   },
   {
@@ -128,17 +84,13 @@ const Menuitems = [
     href: "#",
     style: { whiteSpace: "nowrap" },
     children: [
-      { id: uniqueId(), href: "/menu-utama", name: "Agenda" },
-      { id: uniqueId(), href: "/ui-components/images", name: "Sekilas Info" },
-      { id: uniqueId(), href: "/ui-components/images", name: "Jajak Pendapat" },
-      {
-        id: uniqueId(),
-        href: "/ui-components/images",
-        name: "Yahoo Messanger",
-      },
-      { id: uniqueId(), href: "/ui-components/images", name: "Download Video" },
-      { id: uniqueId(), href: "/ui-components/images", name: "Alamat Kontak" },
-      { id: uniqueId(), href: "/ui-components/images", name: "Pesan Masuk" },
+      { id: uniqueId(), href: "/modul-interaksi/agenda", name: "Agenda" },
+      { id: uniqueId(), href: "/modul-interaksi/sekilas-info", name: "Sekilas Info" },
+      { id: uniqueId(), href: "/modul-interaksi/jajak-pendapat", name: "Jajak Pendapat" },
+      { id: uniqueId(), href: "/modul-interaksi/yahoo-messanger", name: "Yahoo Messanger"},
+      { id: uniqueId(), href: "/modul-interaksi/download-video", name: "Download Video" },
+      { id: uniqueId(), href: "/modul-interaksi/alamat-kontak", name: "Alamat Kontak" },
+      { id: uniqueId(), href: "/modul-interaksi/pesan-masuk", name: "Pesan Masuk" },
     ],
   },
   {
@@ -148,11 +100,7 @@ const Menuitems = [
     href: "#",
     children: [
       { id: uniqueId(), href: "/modul-users/manajemen-user", name: "Manajemen User" },
-      {
-        id: uniqueId(),
-        href: "/modul-users/manajemen-modul",
-        name: "Manajemen Modul",
-      },
+      { id: uniqueId(), href: "/modul-users/manajemen-modul", name: "Manajemen Modul"},
     ],
   },
   {
@@ -161,23 +109,23 @@ const Menuitems = [
     icon: IoSchoolSharp,
     href: "#",
     children: [
-      { id: uniqueId(), href: "/menu-utama", name: "Pengumuman" },
-      { id: uniqueId(), href: "/ui-components/images", name: "Link Terkait" },
-      { id: uniqueId(), href: "/ui-components/images", name: "Data Alumni" },
+      { id: uniqueId(), href: "/modul-sekolah/pengumuman", name: "Pengumuman" },
+      { id: uniqueId(), href: "/modul-sekolah/link-terkait", name: "Link Terkait" },
+      { id: uniqueId(), href: "/modul-sekolah/data-alumni", name: "Data Alumni" },
     ],
   },
   {
     id: uniqueId(),
     title: "Edit Profile",
     icon: FaUserEdit,
-    href: "/ab",
+    href: "/edit-profile",
     align: "left",
   },
   {
     id: uniqueId(),
     title: "Logout",
     icon: RiLogoutBoxLine,
-    href: "/abc",
+    href: "/logout",
     align: "left",
   },
 ];
