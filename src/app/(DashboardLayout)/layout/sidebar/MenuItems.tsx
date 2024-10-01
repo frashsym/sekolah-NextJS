@@ -39,7 +39,7 @@ const Menuitems = [
       { id: uniqueId(), name: "Komentar Berita", href: "/modul-berita/komentar-berita" },
       { id: uniqueId(), name: "Sensor Komentar", href: "/modul-berita/sensor-komentar" },
       { id: uniqueId(), name: "Berita Foto", href: "/modul-berita/berita-foto" },
-      { id: uniqueId(), name: "Gallery Berita Foto", href: "/modul-berita/halaman-baru" },
+      { id: uniqueId(), name: "Galeri Berita Foto", href: "/modul-berita/galeri-berita" },
     ],
   },
   {
