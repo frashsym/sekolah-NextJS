@@ -13,23 +13,6 @@ const PollingPage = () => {
 
   return (
     <div className="min-h-screen flex">
-      {/* Sidebar */}
-      <aside className="w-64 bg-gray-800 text-white p-4">
-        <h2 className="text-lg font-semibold mb-4">ADMINISTRATOR</h2>
-        <ul>
-          <li className="mb-2"><a href="#" className="hover:text-gray-300">Dashboard</a></li>
-          <li className="mb-2"><a href="#" className="hover:text-gray-300">Menu Utama</a></li>
-          <li className="mb-2"><a href="#" className="hover:text-gray-300">Modul Berita</a></li>
-          <li className="mb-2"><a href="#" className="hover:text-gray-300">Modul Video</a></li>
-          <li className="mb-2"><a href="#" className="hover:text-gray-300">Modul Iklan</a></li>
-          <li className="mb-2"><a href="#" className="hover:text-gray-300">Modul Web</a></li>
-          <li className="mb-2"><a href="#" className="hover:text-gray-300">Modul Interaksi</a></li>
-          <li className="mb-2"><a href="#" className="hover:text-gray-300">Modul Users</a></li>
-          <li className="mb-2"><a href="#" className="hover:text-gray-300">Modul Sekolah</a></li>
-          <li className="mt-4 text-red-400"><a href="#" className="hover:text-red-600">Logout</a></li>
-        </ul>
-      </aside>
-
       {/* Main content */}
       <main className="flex-1 bg-gray-100 p-8">
         {/* Header */}
