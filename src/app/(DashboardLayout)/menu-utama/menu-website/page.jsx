@@ -1,26 +1,126 @@
-"use client"; // Ensure this is treated as a client component
+"use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { API_Frontend, API_Backend } from "../../../api/api.js";
 
 const MenuTable = () => {
   const initialData = [
-    { no: 1, menu: "Album Foto", levelMenu: "Galeri", link: "albums", aktif: "Ya", position: "Bottom", urutan: 0 },
-    { no: 2, menu: "Home", levelMenu: "Menu Utama", link: "main", aktif: "Ya", position: "Bottom", urutan: 1 },
-    { no: 3, menu: "Paskibra", levelMenu: "Ekstrakulikuler", link: "playlist", aktif: "Ya", position: "Bottom", urutan: 1 },
-    { no: 4, menu: "Koleksi Video", levelMenu: "Galeri", link: "playlist", aktif: "Ya", position: "Bottom", urutan: 1 },
-    { no: 5, menu: "Index Berita", levelMenu: "Menu Utama", link: "berita/indeks_berita", aktif: "Ya", position: "Top", urutan: 1 },
-    { no: 6, menu: "Prestasi Siswa", levelMenu: "Informasi", link: "kategori/detail/prestasi", aktif: "Ya", position: "Bottom", urutan: 1 },
-    { no: 7, menu: "Informasi", levelMenu: "Menu Utama", link: "#", aktif: "Ya", position: "Bottom", urutan: 2 },
-    { no: 8, menu: "Tentang Kami", levelMenu: "Menu Utama", link: "halaman/detail/tentang-kami-tunggul-news", aktif: "Ya", position: "Top", urutan: 2 },
-    { no: 9, menu: "Ekstrakulikuler", levelMenu: "Menu Utama", link: "#", aktif: "Ya", position: "Bottom", urutan: 3 },
-    { no: 10, menu: "Alamat Kami", levelMenu: "Menu Utama", link: "halaman/detail/alamat-perusahaan", aktif: "Ya", position: "Top", urutan: 3 },
+    {
+      no: 1,
+      menu: "Album Foto",
+      levelMenu: "Galeri",
+      link: "albums",
+      aktif: "Ya",
+      position: "Bottom",
+      urutan: 0,
+    },
+    {
+      no: 2,
+      menu: "Home",
+      levelMenu: "Menu Utama",
+      link: "main",
+      aktif: "Ya",
+      position: "Bottom",
+      urutan: 1,
+    },
+    {
+      no: 3,
+      menu: "Paskibra",
+      levelMenu: "Ekstrakulikuler",
+      link: "playlist",
+      aktif: "Ya",
+      position: "Bottom",
+      urutan: 1,
+    },
+    {
+      no: 4,
+      menu: "Koleksi Video",
+      levelMenu: "Galeri",
+      link: "playlist",
+      aktif: "Ya",
+      position: "Bottom",
+      urutan: 1,
+    },
+    {
+      no: 5,
+      menu: "Index Berita",
+      levelMenu: "Menu Utama",
+      link: "berita/indeks_berita",
+      aktif: "Ya",
+      position: "Top",
+      urutan: 1,
+    },
+    {
+      no: 6,
+      menu: "Prestasi Siswa",
+      levelMenu: "Informasi",
+      link: "kategori/detail/prestasi",
+      aktif: "Ya",
+      position: "Bottom",
+      urutan: 1,
+    },
+    {
+      no: 7,
+      menu: "Informasi",
+      levelMenu: "Menu Utama",
+      link: "#",
+      aktif: "Ya",
+      position: "Bottom",
+      urutan: 2,
+    },
+    {
+      no: 8,
+      menu: "Tentang Kami",
+      levelMenu: "Menu Utama",
+      link: "halaman/detail/tentang-kami-tunggul-news",
+      aktif: "Ya",
+      position: "Top",
+      urutan: 2,
+    },
+    {
+      no: 9,
+      menu: "Ekstrakulikuler",
+      levelMenu: "Menu Utama",
+      link: "#",
+      aktif: "Ya",
+      position: "Bottom",
+      urutan: 3,
+    },
+    {
+      no: 10,
+      menu: "Alamat Kami",
+      levelMenu: "Menu Utama",
+      link: "halaman/detail/alamat-perusahaan",
+      aktif: "Ya",
+      position: "Top",
+      urutan: 3,
+    },
   ];
 
   const [menuData, setMenuData] = useState(initialData);
   const [searchTerm, setSearchTerm] = useState("");
+  const [menu, setMenu] = useState("");
+  const [loading, setLoading] = useState("");
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [menuRes] = await Promise.all([axios.get(`${API_Backend}/menu`)]);
+        setMenu(menuRes.data.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const handleDelete = (no) => {
-    setMenuData(menuData.filter(item => item.no !== no));
+    setMenuData(menuData.filter((item) => item.no !== no));
   };
 
   const handleEdit = (no) => {
@@ -31,7 +131,7 @@ const MenuTable = () => {
     setSearchTerm(e.target.value);
   };
 
-  const filteredData = menuData.filter(item =>
+  const filteredData = menuData.filter((item) =>
     item.menu.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -39,9 +139,15 @@ const MenuTable = () => {
     <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
       <h3>Menu Website (Multilevel)</h3>
 
-      <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "10px" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          marginBottom: "10px",
+        }}
+      >
         <div>
-          Show 
+          Show
           <select style={{ marginLeft: "5px" }}>
             <option value="10">10</option>
             <option value="20">20</option>
@@ -67,7 +173,7 @@ const MenuTable = () => {
             borderRadius: "3px",
             cursor: "pointer",
           }}
-          onClick={() => alert('Tambah Data')}
+          onClick={() => alert("Tambah Data")}
         >
           Tambah Data
         </button>
@@ -92,7 +198,9 @@ const MenuTable = () => {
               <td>{item.no}</td>
               <td>{item.menu}</td>
               <td>{item.levelMenu}</td>
-              <td><a href={item.link}>{item.link}</a></td>
+              <td>
+                <a href={item.link}>{item.link}</a>
+              </td>
               <td>{item.aktif}</td>
               <td>{item.position}</td>
               <td>{item.urutan}</td>
@@ -130,8 +238,16 @@ const MenuTable = () => {
         </tbody>
       </table>
 
-      <div style={{ display: "flex", justifyContent: "space-between", marginTop: "20px" }}>
-        <div>Showing 1 to {menuData.length} of {menuData.length} entries</div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          marginTop: "20px",
+        }}
+      >
+        <div>
+          Showing 1 to {menuData.length} of {menuData.length} entries
+        </div>
         <div>
           <button style={{ marginRight: "10px" }}>Previous</button>
           <button>Next</button>
