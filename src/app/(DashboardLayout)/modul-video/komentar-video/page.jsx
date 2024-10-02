@@ -1,8 +1,8 @@
-'use client'
-import React from "react";
+'use client';
+import React, { useState } from "react";
 
 const KomentarVideo = () => {
-  const comments = [
+  const [comments, setComments] = useState([
     {
       no: 1,
       nama: "Dewiit Saiftri",
@@ -33,57 +33,46 @@ const KomentarVideo = () => {
       isi: "Your email address will not be published. Required fields are marked",
       aktif: "N",
     },
-  ];
+  ]);
+
+  const handleEdit = (no) => {
+    console.log(`Edit komentar dengan nomor: ${no}`);
+  };
+
+  const handleDelete = (no) => {
+    console.log(`Hapus komentar dengan nomor: ${no}`);
+    setComments(comments.filter(comment => comment.no !== no));
+  };
 
   return (
-    <div className="container mx-auto mt-4">
-      <h2 className="text-xl font-bold mb-4">Komentar Video</h2>
-      <div className="flex justify-between mb-2">
-        <div>
-          <label>
-            Show
-            <select className="border ml-2 p-1">
-              <option value="10">10</option>
-              <option value="25">25</option>
-              <option value="50">50</option>
-            </select>
-            entries
-          </label>
-        </div>
-      </div>
-      <table className="min-w-full border-collapse block md:table">
+    <div>
+      <h2>Komentar Video</h2>
+      <button type="button" className="btn btn-primary mb-3">Tambahkan Data</button>
+      <table className="table table-striped">
         <thead>
-          <tr className="border-b">
-            <th className="p-2 text-left">No</th>
-            <th className="p-2 text-left">Nama Komentar</th>
-            <th className="p-2 text-left">Isi Komentar</th>
-            <th className="p-2 text-left">Aktif</th>
-            <th className="p-2 text-left">Action</th>
+          <tr>
+            <th>No</th>
+            <th>Nama Komentar</th>
+            <th>Isi Komentar</th>
+            <th>Aktif</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          {comments.map((comment) => (
-            <tr key={comment.no} className="border-b">
-              <td className="p-2">{comment.no}</td>
-              <td className="p-2 text-blue-500 cursor-pointer">{comment.nama}</td>
-              <td className="p-2">{comment.isi}</td>
-              <td className="p-2">{comment.aktif}</td>
-              <td className="p-2 flex space-x-2">
-                <button className="bg-green-500 text-white px-2 py-1 rounded">Edit</button>
-                <button className="bg-red-500 text-white px-2 py-1 rounded">Delete</button>
+          {comments.map((comment, index) => (
+            <tr key={comment.no}>
+              <td>{index + 1}</td>
+              <td>{comment.nama}</td>
+              <td>{comment.isi}</td>
+              <td>{comment.aktif}</td>
+              <td>
+                <button onClick={() => handleEdit(comment.no)} className="btn btn-success mx-1">Edit</button>
+                <button onClick={() => handleDelete(comment.no)} className="btn btn-danger mx-1">Hapus</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-      <div className="flex justify-between items-center mt-2">
-        <span>Showing 1 to {comments.length} of {comments.length} entries</span>
-        <div>
-          <button className="px-3 py-1 border">Previous</button>
-          <button className="px-3 py-1 border bg-blue-500 text-white ml-2">1</button>
-          <button className="px-3 py-1 border ml-2">Next</button>
-        </div>
-      </div>
     </div>
   );
 };
