@@ -1,14 +1,24 @@
-'use client';
-import React, { useState } from 'react';
+"use client";
+import React, { useState } from "react";
 
 const IklanSidebar = () => {
   const [data, setData] = useState([
-    { id: 1, judul: 'Iklan Sidebar Kanan', link: 'http://phpmu.com', tanggal: '22 Jun 2014' },
-    { id: 2, judul: 'Iklan Sidebar Kiri', link: 'http://phpmu.com', tanggal: '22 Jun 2014' }
+    {
+      id: 1,
+      judul: "Iklan Sidebar Kanan",
+      link: "http://phpmu.com",
+      tanggal: "22 Jun 2014",
+    },
+    {
+      id: 2,
+      judul: "Iklan Sidebar Kiri",
+      link: "http://phpmu.com",
+      tanggal: "22 Jun 2014",
+    },
   ]);
 
   const handleDelete = (id) => {
-    setData(data.filter(item => item.id !== id));
+    setData(data.filter((item) => item.id !== id));
   };
 
   return (
@@ -16,7 +26,9 @@ const IklanSidebar = () => {
       <h2 className="text-xl font-bold mb-4">Iklan Sidebar</h2>
 
       <div className="mb-4">
-        <button className="bg-blue-500 text-white px-4 py-2 rounded">Tambahkan Data</button>
+        <button className="bg-primary text-white px-4 py-2 rounded">
+          Tambahkan Data
+        </button>
       </div>
 
       <div className="mb-4 flex justify-between">
@@ -60,12 +72,12 @@ const IklanSidebar = () => {
               </td>
               <td className="border px-4 py-2">{item.tanggal}</td>
               <td className="border px-4 py-2">
-                <button className="bg-green-500 text-white px-2 py-1 rounded mr-2">
+                <button className="bg-success text-white px-2 py-1 rounded mr-2">
                   Edit
                 </button>
                 <button
                   onClick={() => handleDelete(item.id)}
-                  className="bg-red-500 text-white px-2 py-1 rounded"
+                  className="bg-danger text-white px-2 py-1 rounded"
                 >
                   Delete
                 </button>
@@ -76,11 +88,17 @@ const IklanSidebar = () => {
       </table>
 
       <div className="mt-4 flex justify-between items-center">
-        <p>Showing 1 to {data.length} of {data.length} entries</p>
+        <p>
+          Showing 1 to {data.length} of {data.length} entries
+        </p>
         <div>
-          <button className="px-3 py-1 border bg-gray-200 rounded-l">Previous</button>
-          <button className="px-3 py-1 border bg-blue-500 text-white">1</button>
-          <button className="px-3 py-1 border bg-gray-200 rounded-r">Next</button>
+          <button className="px-3 py-1 border bg-gray-200 rounded-l">
+            Previous
+          </button>
+          <button className="px-3 py-1 border bg-blue-500 text-black">1</button>
+          <button className="px-3 py-1 border bg-gray-200 rounded-r">
+            Next
+          </button>
         </div>
       </div>
     </div>

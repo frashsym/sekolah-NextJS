@@ -81,7 +81,11 @@ const PlaylistTable = () => {
               <tr key={item.no}>
                 <td>{item.no}</td>
                 <td>{item.judul}</td>
-                <td>{item.link}</td>
+                <td>
+                  <a href={item.link} className="text-decoration-none">
+                    {item.link}
+                  </a>
+                </td>
                 <td>{item.posisi}</td>
                 <td>{item.aktif}</td>
                 <td>
@@ -98,9 +102,13 @@ const PlaylistTable = () => {
           Showing 1 to {data.length} of {data.length} entries
         </span>
         <div>
-          <button className="btn btn-outline-secondary btn-sm me-2">Previous</button>
+          <button className="btn btn-outline-secondary btn-sm me-2">
+            Previous
+          </button>
           <button className="btn btn-primary btn-sm">1</button>
-          <button className="btn btn-outline-secondary btn-sm ms-2">Next</button>
+          <button className="btn btn-outline-secondary btn-sm ms-2">
+            Next
+          </button>
         </div>
       </div>
     </div>

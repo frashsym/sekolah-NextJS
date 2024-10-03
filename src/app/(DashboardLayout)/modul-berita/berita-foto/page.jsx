@@ -32,7 +32,9 @@ const BeritaFoto = () => {
   const handleSearch = (e) => {
     const term = e.target.value.toLowerCase();
     setSearchTerm(term);
-    const filteredData = allData.filter((item) => item.judul.toLowerCase().includes(term));
+    const filteredData = allData.filter((item) =>
+      item.judul.toLowerCase().includes(term)
+    );
     setData(filteredData);
   };
 
@@ -54,7 +56,13 @@ const BeritaFoto = () => {
         <button className="btn btn-primary">Tambahkan Data</button>
       </div>
       <div className="d-flex justify-content-end mb-3">
-        <input type="text" className="form-control form-control-sm w-auto" placeholder="Cari berita..." value={searchTerm} onChange={handleSearch} />
+        <input
+          type="text"
+          className="form-control form-control-sm w-auto"
+          placeholder="Cari berita..."
+          value={searchTerm}
+          onChange={handleSearch}
+        />
       </div>
       <div className="table-responsive">
         <table className="table table-striped table-bordered">
@@ -74,13 +82,26 @@ const BeritaFoto = () => {
                 <tr key={item.no}>
                   <td>{item.no}</td>
                   <td>
-                    <img src={item.cover} alt="Cover" className="img-fluid" style={{ width: "50px", height: "50px", objectFit: "cover" }} />
+                    <img
+                      src={item.cover}
+                      alt="Cover"
+                      className="img-fluid"
+                      style={{
+                        width: "50px",
+                        height: "50px",
+                        objectFit: "cover",
+                      }}
+                    />
                   </td>
                   <td>{item.judul}</td>
-                  <td>{item.url}</td>
+                  <td>
+                    <a href={item.url}>{item.url}</a>
+                  </td>
                   <td>{item.aktif}</td>
                   <td>
-                    <button className="btn btn-success btn-sm me-2">Edit</button>
+                    <button className="btn btn-success btn-sm me-2">
+                      Edit
+                    </button>
                     <button className="btn btn-danger btn-sm">Delete</button>
                   </td>
                 </tr>
@@ -100,9 +121,13 @@ const BeritaFoto = () => {
           Showing 1 to {data.length} of {allData.length} entries
         </span>
         <div>
-          <button className="btn btn-outline-secondary btn-sm me-2">Previous</button>
+          <button className="btn btn-outline-secondary btn-sm me-2">
+            Previous
+          </button>
           <button className="btn btn-primary btn-sm">1</button>
-          <button className="btn btn-outline-secondary btn-sm ms-2">Next</button>
+          <button className="btn btn-outline-secondary btn-sm ms-2">
+            Next
+          </button>
         </div>
       </div>
     </div>

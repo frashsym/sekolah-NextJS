@@ -52,7 +52,11 @@ const PlaylistTable = () => {
         <div>
           <label className="me-2">
             Show
-            <select className="form-select form-select-sm d-inline-block w-auto ms-2" value={itemsPerPage} onChange={handleItemsPerPageChange}>
+            <select
+              className="form-select form-select-sm d-inline-block w-auto ms-2"
+              value={itemsPerPage}
+              onChange={handleItemsPerPageChange}
+            >
               <option value="5">5</option>
               <option value="10">10</option>
               <option value="25">25</option>
@@ -78,7 +82,11 @@ const PlaylistTable = () => {
               <tr key={item.no}>
                 <td>{item.no}</td>
                 <td>{item.judul}</td>
-                <td>{item.link}</td>
+                <td>
+                  <a href={item.link} className="text-decoration-none">
+                    {item.link}
+                  </a>
+                </td>
                 <td>
                   <button className="btn btn-success btn-sm me-2">Edit</button>
                   <button className="btn btn-danger btn-sm">Delete</button>
@@ -90,14 +98,25 @@ const PlaylistTable = () => {
       </div>
       <div className="d-flex justify-content-between align-items-center mt-2">
         <span>
-          Showing {currentPage} to {paginatedData.length} of {data.length} entries
+          Showing {currentPage} to {paginatedData.length} of {data.length}{" "}
+          entries
         </span>
         <div>
-          <button className={`btn btn-outline-secondary btn-sm me-2 ${currentPage === 1 ? "disabled" : ""}`} onClick={handlePrevious}>
+          <button
+            className={`btn btn-outline-secondary btn-sm me-2 ${
+              currentPage === 1 ? "disabled" : ""
+            }`}
+            onClick={handlePrevious}
+          >
             Previous
           </button>
           <span>{currentPage}</span>
-          <button className={`btn btn-outline-secondary btn-sm ms-2 ${currentPage === totalPages ? "disabled" : ""}`} onClick={handleNext}>
+          <button
+            className={`btn btn-outline-secondary btn-sm ms-2 ${
+              currentPage === totalPages ? "disabled" : ""
+            }`}
+            onClick={handleNext}
+          >
             Next
           </button>
         </div>
