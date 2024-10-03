@@ -40,67 +40,63 @@ const BannerLink = () => {
   };
 
   return (
-    <div className="container mx-auto mt-5">
-      <h2 className="text-xl font-bold mb-4">Banner Link</h2>
+    <div className="container mt-5">
+      <h2 className="mb-4">Banner Link</h2>
 
       <div className="mb-4">
-        <button className="bg-primary text-white px-4 py-2 rounded">
-          Tambahkan Data
-        </button>
+        <button className="btn btn-primary">Tambahkan Data</button>
       </div>
 
-      <div className="mb-4 flex justify-between">
-        <div>
+      <div className="mb-4 row">
+        <div className="col-md-6">
           <label>Show </label>
-          <select className="border p-1 rounded">
+          <select className="form-select d-inline-block w-auto">
             <option value="10">10</option>
             <option value="25">25</option>
             <option value="50">50</option>
           </select>
           <label> entries</label>
         </div>
-        <div>
+        <div className="col-md-6 text-end">
           <input
             type="text"
             placeholder="Search"
-            className="border rounded p-1"
+            className="form-control d-inline-block w-auto"
           />
         </div>
       </div>
 
-      <table className="min-w-full bg-white border border-gray-200">
+      <table className="table table-striped">
         <thead>
           <tr>
-            <th className="border px-4 py-2">No</th>
-            <th className="border px-4 py-2">Judul</th>
-            <th className="border px-4 py-2">Link</th>
-            <th className="border px-4 py-2">Tgl Posting</th>
-            <th className="border px-4 py-2">Action</th>
+            <th>No</th>
+            <th>Judul</th>
+            <th>Link</th>
+            <th>Tgl Posting</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
           {data.map((item, index) => (
             <tr key={item.id}>
-              <td className="border px-4 py-2">{index + 1}</td>
-              <td className="border px-4 py-2">{item.judul}</td>
-              <td className="border px-4 py-2">
+              <td>{index + 1}</td>
+              <td>{item.judul}</td>
+              <td>
                 <a
                   href={item.link}
-                  className="text-blue-500"
+                  className="text-primary"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   {item.link}
                 </a>
               </td>
-              <td className="border px-4 py-2">{item.tanggal}</td>
-              <td className="border px-4 py-2">
-                <button className="bg-success text-white px-2 py-1 rounded mr-2">
-                  Edit
-                </button>
+              <td>{item.tanggal}</td>
+              <td>
+                <button className="btn btn-success me-2">Edit</button>
                 <button
                   onClick={() => handleDelete(item.id)}
-                  className="bg-danger text-white px-2 py-1 rounded"
+                  className="btn btn-danger"
                 >
                   Delete
                 </button>
@@ -110,18 +106,14 @@ const BannerLink = () => {
         </tbody>
       </table>
 
-      <div className="mt-4 flex justify-between items-center">
+      <div className="mt-4 d-flex justify-content-between">
         <p>
           Showing 1 to {data.length} of {data.length} entries
         </p>
         <div>
-          <button className="px-3 py-1 border bg-gray-200 rounded-l">
-            Previous
-          </button>
-          <button className="px-3 py-1 border bg-blue-500 text-black">1</button>
-          <button className="px-3 py-1 border bg-gray-200 rounded-r">
-            Next
-          </button>
+          <button className="btn btn-secondary me-2">Previous</button>
+          <button className="btn btn-primary">1</button>
+          <button className="btn btn-secondary ms-2">Next</button>
         </div>
       </div>
     </div>
