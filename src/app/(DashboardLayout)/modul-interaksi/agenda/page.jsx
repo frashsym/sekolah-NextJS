@@ -28,15 +28,7 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen flex">
-      {/* Main content */}
       <main className="flex-1 bg-gray-100 p-8">
-        {/* Header */}
-        <div className="bg-blue-600 p-4 text-white">
-          <h1 className="text-2xl">Dashboard</h1>
-          <p>Control Panel</p>
-        </div>
-
-        {/* Agenda Table */}
         <section className="mt-8 bg-white shadow rounded-lg p-6">
           <div className="flex justify-between items-center">
             <h2 className="text-xl font-semibold">Semua Agenda</h2>
