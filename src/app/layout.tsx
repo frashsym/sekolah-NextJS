@@ -4,7 +4,7 @@ import { baselightTheme } from "@/utils/theme/DefaultColors";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { usePathname } from "next/navigation";
-import LandingPage from "./(LandingPage)/index";
+import LandingPage from "./page";
 
 export default function RootLayout({
   children,
