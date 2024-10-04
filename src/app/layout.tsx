@@ -1,21 +1,24 @@
 "use client";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import { baselightTheme } from "@/utils/theme/DefaultColors";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+import { usePathname } from "next/navigation";
+import LandingPage from "./(LandingPage)/index";
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
+
   return (
     <html lang="en">
       <body>
         <ThemeProvider theme={baselightTheme}>
-          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
           <CssBaseline />
-          {children}
+          {pathname === "/" ? <LandingPage /> : children}
         </ThemeProvider>
       </body>
     </html>
