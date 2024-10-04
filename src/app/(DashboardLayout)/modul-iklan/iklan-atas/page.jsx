@@ -2,42 +2,57 @@
 import React, { useState } from 'react';
 
 const AdTable = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([
+    {
+      id: 1,
+      judul: "Example Ad 1",
+      link: "https://example.com",
+      tanggal: "21 Mei 2023",
+    },
+    {
+      id: 2,
+      judul: "Example Ad 2",
+      link: "https://example.com",
+      tanggal: "22 Mei 2023",
+    },
+    // Additional sample data
+  ]);
   const [searchTerm, setSearchTerm] = useState('');
 
+  const handleDelete = (id) => {
+    setData(data.filter((item) => item.id !== id));
+  };
+
   return (
-    <div className="container mt-4">
-      <h2>Iklan Atas</h2>
-      <div className="d-flex justify-content-between align-items-center mb-2">
-        <div>
-          <label>
-            Show
-            <select className="mx-2">
-              <option value="10">10</option>
-              <option value="25">25</option>
-              <option value="50">50</option>
-              <option value="100">100</option>
-            </select>
-            entries
-          </label>
+    <div className="container mt-5">
+      <h2 className="mb-4">Iklan Atas</h2>
+
+      <div className="mb-4">
+        <button className="btn btn-primary">Tambahkan Data</button>
+      </div>
+
+      <div className="mb-4 row">
+        <div className="col-md-6">
+          <label>Show </label>
+          <select className="form-select d-inline-block w-auto">
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+          </select>
+          <label> entries</label>
         </div>
-        <div>
-          <button className="btn btn-primary">Tambahkan Data</button>
+        <div className="col-md-6 text-end">
+          <input
+            type="text"
+            placeholder="Search"
+            className="form-control d-inline-block w-auto"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
         </div>
       </div>
 
-      <div className="d-flex justify-content-end mb-2">
-        <input
-          type="text"
-          placeholder="Search"
-          className="form-control"
-          style={{ width: '200px' }}
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-      </div>
-
-      <table className="table table-bordered">
+      <table className="table table-striped">
         <thead>
           <tr>
             <th>No</th>
@@ -56,13 +71,28 @@ const AdTable = () => {
             </tr>
           ) : (
             data.map((item, index) => (
-              <tr key={index}>
+              <tr key={item.id}>
                 <td>{index + 1}</td>
                 <td>{item.judul}</td>
-                <td>{item.link}</td>
-                <td>{item.tglPosting}</td>
                 <td>
-                  {/* Add your action buttons or links here */}
+                  <a
+                    href={item.link}
+                    className="text-primary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {item.link}
+                  </a>
+                </td>
+                <td>{item.tanggal}</td>
+                <td>
+                  <button className="btn btn-success me-2">Edit</button>
+                  <button
+                    onClick={() => handleDelete(item.id)}
+                    className="btn btn-danger"
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))
@@ -70,11 +100,14 @@ const AdTable = () => {
         </tbody>
       </table>
 
-      <div className="d-flex justify-content-between">
-        <div>Showing 0 to 0 of 0 entries</div>
+      <div className="mt-4 d-flex justify-content-between">
+        <p>
+          Showing 1 to {data.length} of {data.length} entries
+        </p>
         <div>
-          <button className="btn btn-link">Previous</button>
-          <button className="btn btn-link">Next</button>
+          <button className="btn btn-secondary me-2">Previous</button>
+          <button className="btn btn-primary">1</button>
+          <button className="btn btn-secondary ms-2">Next</button>
         </div>
       </div>
     </div>

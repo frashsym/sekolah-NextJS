@@ -7,12 +7,13 @@ const AdTable = () => {
 
   return (
     <div className="container mt-4">
-      <h2>Iklan Home</h2>
-      <div className="d-flex justify-content-between align-items-center mb-2">
+      <h2 className="mb-3">Iklan Home</h2>
+
+      <div className="d-flex justify-content-between align-items-center mb-4">
         <div>
           <label>
             Show
-            <select className="mx-2">
+            <select className="form-select d-inline-block mx-2 w-auto">
               <option value="10">10</option>
               <option value="25">25</option>
               <option value="50">50</option>
@@ -26,18 +27,17 @@ const AdTable = () => {
         </div>
       </div>
 
-      <div className="d-flex justify-content-end mb-2">
+      <div className="d-flex justify-content-end mb-3">
         <input
           type="text"
           placeholder="Search"
-          className="form-control"
-          style={{ width: '200px' }}
+          className="form-control w-auto"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
 
-      <table className="table table-bordered">
+      <table className="table table-striped table-bordered">
         <thead>
           <tr>
             <th>No</th>
@@ -59,10 +59,15 @@ const AdTable = () => {
               <tr key={index}>
                 <td>{index + 1}</td>
                 <td>{item.judul}</td>
-                <td>{item.link}</td>
+                <td>
+                  <a href={item.link} target="_blank" rel="noopener noreferrer">
+                    {item.link}
+                  </a>
+                </td>
                 <td>{item.tglPosting}</td>
                 <td>
-                  {/* Add your action buttons or links here */}
+                  <button className="btn btn-success me-2">Edit</button>
+                  <button className="btn btn-danger">Delete</button>
                 </td>
               </tr>
             ))
@@ -73,8 +78,8 @@ const AdTable = () => {
       <div className="d-flex justify-content-between">
         <div>Showing 0 to 0 of 0 entries</div>
         <div>
-          <button className="btn btn-link">Previous</button>
-          <button className="btn btn-link">Next</button>
+          <button className="btn btn-secondary me-2">Previous</button>
+          <button className="btn btn-secondary">Next</button>
         </div>
       </div>
     </div>
