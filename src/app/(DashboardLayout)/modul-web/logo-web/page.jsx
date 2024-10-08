@@ -1,8 +1,7 @@
 'use client';
-import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import React, { useState } from "react";
 
-const ChangeLogo = () => {
+const Dashboard = () => {
   const [selectedFile, setSelectedFile] = useState(null);
 
   const handleFileChange = (e) => {
@@ -11,54 +10,114 @@ const ChangeLogo = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (selectedFile) {
-      alert(`Logo updated: ${selectedFile.name}`);
-    } else {
-      alert('Please select a file');
-    }
+    // Proses penggantian logo di sini
+    alert("Logo has been updated!");
   };
 
   return (
-    <div className="container mt-4">
-      <h2>Ganti Logo Website</h2>
-      <Form onSubmit={handleSubmit}>
-        {/* Current Logo Display */}
-        <div className="mb-3">
-          <h4>Logo Terpasang</h4>
-          <div className="d-flex align-items-center">
-            <img
-              src="path/to/current-logo.png" // Replace with the path to your current logo
-              alt="Current Logo"
-              style={{ width: '100px', height: '100px', marginRight: '20px' }}
-            />
-            <img
-              src="path/to/current-banner.png" // Replace with the path to your current banner
-              alt="Current Banner"
-              style={{ width: '400px', height: '100px' }}
+    <div style={styles.container}>
+      <h2 style={styles.title}>Dashboard <span style={styles.subTitle}>Control panel</span></h2>
+      <div style={styles.card}>
+        <h3>Ganti Logo Website</h3>
+        <div style={styles.logoContainer}>
+          <img 
+            src="/path-to-your-image/logo.jpeg" // Ganti dengan URL logo saat ini
+            alt="Logo Sekolah"
+            style={styles.logo}
+          />
+        </div>
+        <form onSubmit={handleSubmit}>
+          <div style={styles.formGroup}>
+            <label>Ganti Logo:</label>
+            <input 
+              type="file" 
+              onChange={handleFileChange} 
+              style={styles.inputFile}
             />
           </div>
-        </div>
-
-        {/* File Upload Section */}
-        <div className="mb-3">
-          <h4>Ganti Logo</h4>
-          <Form.Group controlId="formFile">
-            <Form.Control type="file" onChange={handleFileChange} />
-          </Form.Group>
-        </div>
-
-        {/* Buttons */}
-        <div className="d-flex justify-content-between mt-3">
-          <Button variant="primary" type="submit">
-            Update
-          </Button>
-          <Button variant="secondary" onClick={() => setSelectedFile(null)}>
-            Cancel
-          </Button>
-        </div>
-      </Form>
+          <div style={styles.buttonGroup}>
+            <button type="submit" style={styles.updateButton}>Update</button>
+            <button type="button" style={styles.cancelButton}>Cancel</button>
+          </div>
+        </form>
+      </div>
+      <footer style={styles.footer}>
+        <p>
+          Copyright © 2016 - 2024 <a href="https://example.com">Website Sekolah Lokomedia</a>. All rights reserved.
+        </p>
+      </footer>
     </div>
   );
 };
 
-export default ChangeLogo;
+const styles = {
+  container: {
+    fontFamily: "Arial, sans-serif",
+    margin: "20px auto",
+    maxWidth: "800px",
+    backgroundColor: "#f9f9f9",
+    padding: "20px",
+    borderRadius: "8px",
+    boxShadow: "0 0 10px rgba(0,0,0,0.1)"
+  },
+  title: {
+    fontSize: "24px",
+    marginBottom: "10px",
+  },
+  subTitle: {
+    fontSize: "16px",
+    color: "#666",
+    marginLeft: "10px"
+  },
+  card: {
+    padding: "20px",
+    border: "1px solid #ddd",
+    borderRadius: "8px",
+    backgroundColor: "#fff"
+  },
+  logoContainer: {
+    textAlign: "center",
+    marginBottom: "20px"
+  },
+  logo: {
+    maxWidth: "100%",
+    height: "auto"
+  },
+  formGroup: {
+    marginBottom: "20px"
+  },
+  inputFile: {
+    width: "100%",
+    padding: "8px",
+    border: "1px solid #ddd",
+    borderRadius: "4px"
+  },
+  buttonGroup: {
+    display: "flex",
+    justifyContent: "space-between"
+  },
+  updateButton: {
+    backgroundColor: "#00aaff",
+    color: "#fff",
+    padding: "10px 20px",
+    border: "none",
+    borderRadius: "4px",
+    cursor: "pointer"
+  },
+  cancelButton: {
+    backgroundColor: "#ddd",
+    color: "#333",
+    padding: "10px 20px",
+    border: "none",
+    borderRadius: "4px",
+    cursor: "pointer"
+  },
+  footer: {
+    marginTop: "20px",
+    textAlign: "center",
+    fontSize: "12px",
+    color: "#666"
+  }
+};
+
+export default Dashboard;
