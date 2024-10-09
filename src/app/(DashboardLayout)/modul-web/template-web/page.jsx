@@ -1,81 +1,86 @@
 'use client';
-import React from 'react';
-import { Table, Button, Form } from 'react-bootstrap';
+import React, { useState } from 'react';
 
-const TemplateWebsite = () => {
+const Dashboard = () => {
+  const [entries, setEntries] = useState([
+    {
+      id: 1,
+      templateName: 'Lokomedia ke Sekolah - Template Web Sekolah',
+      creator: 'Wildan Agissa',
+      directory: 'lokomedia_sekolah',
+      active: 'Y',
+    },
+  ]);
+
   return (
-    <div className="container mt-4">
-      <h2>Template Website</h2>
-
-      {/* Top Section: Show Entries & Search */}
-      <div className="d-flex justify-content-between mb-3">
-        <div>
-          <label>
-            Show{' '}
-            <Form.Control as="select" size="sm" style={{ display: 'inline', width: '60px' }}>
-              <option>10</option>
-              <option>25</option>
-              <option>50</option>
-              <option>100</option>
-            </Form.Control>{' '}
-            entries
-          </label>
+    <div className="dashboard-container" style={{ padding: '20px', backgroundColor: '#f8f9fa' }}>
+      
+      <div className="card mt-4">
+        <div className="card-header">
+          <h5>Template Website</h5>
+          <button className="btn btn-primary" style={{ float: 'right' }}>Tambahkan Data</button>
         </div>
+        
+        <div className="card-body">
+          <div className="mb-3">
+            <label htmlFor="entries" className="form-label">Show</label>
+            <select id="entries" className="form-select" style={{ display: 'inline', width: '80px', marginLeft: '10px' }}>
+              <option value="10">10</option>
+              <option value="25">25</option>
+              <option value="50">50</option>
+            </select>
+            <span> entries</span>
+          </div>
 
-        <Form.Control type="text" placeholder="Search" style={{ width: '200px' }} />
-      </div>
+          <table className="table table-bordered">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama Template</th>
+                <th>Pembuat</th>
+                <th>Directory</th>
+                <th>Aktif</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {entries.map((entry, index) => (
+                <tr key={entry.id}>
+                  <td>{index + 1}</td>
+                  <td>{entry.templateName}</td>
+                  <td>{entry.creator}</td>
+                  <td>{entry.directory}</td>
+                  <td>{entry.active}</td>
+                  <td>
+                    <button className="btn btn-warning btn-sm mr-2">★</button>
+                    <button className="btn btn-success btn-sm mr-2">✎</button>
+                    <button className="btn btn-danger btn-sm">✗</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
 
-      {/* Table */}
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>No</th>
-            <th>Nama Template</th>
-            <th>Pembuat</th>
-            <th>Directory</th>
-            <th>Aktif</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Lokomedia ke Sekolah - Template Web Sekolah</td>
-            <td>Wildan Agissa</td>
-            <td>lokomedia_sekolah</td>
-            <td>Y</td>
-            <td>
-              <Button variant="warning" className="me-2">
-                <i className="fas fa-star"></i>
-              </Button>
-              <Button variant="success" className="me-2">
-                <i className="fas fa-edit"></i>
-              </Button>
-              <Button variant="danger">
-                <i className="fas fa-trash-alt"></i>
-              </Button>
-            </td>
-          </tr>
-        </tbody>
-      </Table>
-
-      {/* Pagination */}
-      <div className="d-flex justify-content-between">
-        <div>Showing 1 to 1 of 1 entries</div>
-        <div>
-          <Button variant="primary" size="sm" disabled>
-            Previous
-          </Button>{' '}
-          <Button variant="primary" size="sm" active>
-            1
-          </Button>{' '}
-          <Button variant="primary" size="sm" disabled>
-            Next
-          </Button>
+          <div className="pagination d-flex justify-content-between">
+            <span>Showing 1 to 1 of 1 entries</span>
+            <nav aria-label="Page navigation">
+              <ul className="pagination">
+                <li className="page-item disabled">
+                  <a className="page-link" href="#">Previous</a>
+                </li>
+                <li className="page-item active">
+                  <a className="page-link" href="#">1</a>
+                </li>
+                <li className="page-item">
+                  <a className="page-link" href="#">Next</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default TemplateWebsite;
+export default Dashboard;

@@ -16,7 +16,6 @@ const Dashboard = () => {
 
   return (
     <div style={styles.container}>
-      <h2 style={styles.title}>Dashboard <span style={styles.subTitle}>Control panel</span></h2>
       <div style={styles.card}>
         <h3>Ganti Logo Website</h3>
         <div style={styles.logoContainer}>
@@ -41,11 +40,6 @@ const Dashboard = () => {
           </div>
         </form>
       </div>
-      <footer style={styles.footer}>
-        <p>
-          Copyright © 2016 - 2024 <a href="https://example.com">Website Sekolah Lokomedia</a>. All rights reserved.
-        </p>
-      </footer>
     </div>
   );
 };
