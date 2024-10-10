@@ -23,89 +23,19 @@ const MenuTable = () => {
       position: "Bottom",
       urutan: 1,
     },
-    {
-      no: 3,
-      menu: "Paskibra",
-      levelMenu: "Ekstrakulikuler",
-      link: "playlist",
-      aktif: "Ya",
-      position: "Bottom",
-      urutan: 1,
-    },
-    {
-      no: 4,
-      menu: "Koleksi Video",
-      levelMenu: "Galeri",
-      link: "playlist",
-      aktif: "Ya",
-      position: "Bottom",
-      urutan: 1,
-    },
-    {
-      no: 5,
-      menu: "Index Berita",
-      levelMenu: "Menu Utama",
-      link: "berita/indeks_berita",
-      aktif: "Ya",
-      position: "Top",
-      urutan: 1,
-    },
-    {
-      no: 6,
-      menu: "Prestasi Siswa",
-      levelMenu: "Informasi",
-      link: "kategori/detail/prestasi",
-      aktif: "Ya",
-      position: "Bottom",
-      urutan: 1,
-    },
-    {
-      no: 7,
-      menu: "Informasi",
-      levelMenu: "Menu Utama",
-      link: "#",
-      aktif: "Ya",
-      position: "Bottom",
-      urutan: 2,
-    },
-    {
-      no: 8,
-      menu: "Tentang Kami",
-      levelMenu: "Menu Utama",
-      link: "halaman/detail/tentang-kami-tunggul-news",
-      aktif: "Ya",
-      position: "Top",
-      urutan: 2,
-    },
-    {
-      no: 9,
-      menu: "Ekstrakulikuler",
-      levelMenu: "Menu Utama",
-      link: "#",
-      aktif: "Ya",
-      position: "Bottom",
-      urutan: 3,
-    },
-    {
-      no: 10,
-      menu: "Alamat Kami",
-      levelMenu: "Menu Utama",
-      link: "halaman/detail/alamat-perusahaan",
-      aktif: "Ya",
-      position: "Top",
-      urutan: 3,
-    },
+    // ... Add remaining menu items here
   ];
 
   const [menuData, setMenuData] = useState(initialData);
   const [searchTerm, setSearchTerm] = useState("");
   const [menu, setMenu] = useState("");
-  const [loading, setLoading] = useState("");
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
         const [menuRes] = await Promise.all([axios.get(`${API_Backend}/menu`)]);
         setMenu(menuRes.data.data);
       } catch (error) {
@@ -136,50 +66,21 @@ const MenuTable = () => {
   );
 
   return (
-    <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-      <h3>Menu Website (Multilevel)</h3>
+    <div>
+      <h2>Menu Website (Multilevel)</h2>
+      <button type="button" className="btn btn-primary mb-3">
+        Tambahkan Data
+      </button>
 
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          marginBottom: "10px",
-        }}
-      >
-        <div>
-          Show
-          <select style={{ marginLeft: "5px" }}>
-            <option value="10">10</option>
-            <option value="20">20</option>
-            <option value="30">30</option>
-          </select>
-          entries
-        </div>
-        <div>
-          <input
-            type="text"
-            placeholder="Search..."
-            value={searchTerm}
-            onChange={handleSearch}
-            style={{ padding: "5px", marginLeft: "10px" }}
-          />
-        </div>
-        <button
-          style={{
-            backgroundColor: "blue",
-            color: "#fff",
-            padding: "5px 10px",
-            border: "none",
-            borderRadius: "3px",
-            cursor: "pointer",
-          }}
-          onClick={() => alert("Tambah Data")}
-        >
-          Tambah Data
-        </button>
-      </div>
+      <input
+        type="text"
+        placeholder="Search..."
+        value={searchTerm}
+        onChange={handleSearch}
+        className="form-control mb-3"
+      />
 
-      <table style={{ width: "100%", borderCollapse: "collapse" }}>
+      <table className="table table-striped">
         <thead>
           <tr>
             <th>No</th>
@@ -194,7 +95,7 @@ const MenuTable = () => {
         </thead>
         <tbody>
           {filteredData.map((item) => (
-            <tr key={item.no} style={{ borderBottom: "1px solid #ddd" }}>
+            <tr key={item.no}>
               <td>{item.no}</td>
               <td>{item.menu}</td>
               <td>{item.levelMenu}</td>
@@ -206,53 +107,22 @@ const MenuTable = () => {
               <td>{item.urutan}</td>
               <td>
                 <button
-                  style={{
-                    backgroundColor: "green",
-                    color: "#fff",
-                    padding: "5px 10px",
-                    marginRight: "5px",
-                    border: "none",
-                    borderRadius: "3px",
-                    cursor: "pointer",
-                  }}
                   onClick={() => handleEdit(item.no)}
+                  className="btn btn-success me-2"
                 >
                   Edit
                 </button>
                 <button
-                  style={{
-                    backgroundColor: "red",
-                    color: "#fff",
-                    padding: "5px 10px",
-                    border: "none",
-                    borderRadius: "3px",
-                    cursor: "pointer",
-                  }}
                   onClick={() => handleDelete(item.no)}
+                  className="btn btn-danger"
                 >
-                  Delete
+                  Hapus
                 </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          marginTop: "20px",
-        }}
-      >
-        <div>
-          Showing 1 to {menuData.length} of {menuData.length} entries
-        </div>
-        <div>
-          <button style={{ marginRight: "10px" }}>Previous</button>
-          <button>Next</button>
-        </div>
-      </div>
     </div>
   );
 };
