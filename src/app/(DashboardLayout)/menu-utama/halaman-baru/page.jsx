@@ -47,8 +47,8 @@ const TableWithPagination = () => {
       <button className="btn btn-primary" style={{ float: 'right', marginBottom: '10px' }}>
         Tambah Data
       </button>
-      <table className="table table-striped">
-        <thead>
+      <table className="table table-striped table-bordered">
+        <thead className="thead-dark">
           <tr>
             <th>No</th>
             <th>Judul</th>
@@ -64,13 +64,15 @@ const TableWithPagination = () => {
             <tr key={index}>
               <td>{row.no}</td>
               <td>{row.judul}</td>
-              <td><a href={row.link}>{row.link}</a></td>
+              <td><a href={row.link} className="text-primary">{row.link}</a></td>
               <td>{row.kelompok}</td>
               <td>{row.urutan}</td>
               <td>{row.tglPosting}</td>
               <td>
-                <button className="btn btn-success">Edit</button>
-                <button className="btn btn-danger">Delete</button>
+                <div style={{ display: 'flex', gap: '5px' }}> {/* Added flexbox for horizontal alignment */}
+                  <button className="btn btn-success btn-sm">Edit</button>
+                  <button className="btn btn-danger btn-sm">Delete</button>
+                </div>
               </td>
             </tr>
           ))}
