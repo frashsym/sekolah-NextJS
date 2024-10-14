@@ -67,10 +67,12 @@ const MenuTable = () => {
 
   return (
     <div>
-      <h2>Menu Website (Multilevel)</h2>
-      <button type="button" className="btn btn-primary mb-3">
-        Tambahkan Data
-      </button>
+      <div className="d-flex justify-content-between mb-3">
+        <h2>Menu Website (Multilevel)</h2>
+        <button type="button" className="btn btn-primary">
+          Tambahkan Data
+        </button>
+      </div>
 
       <input
         type="text"

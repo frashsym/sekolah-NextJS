@@ -77,7 +77,7 @@ const TableWithPagination = () => {
             </tr>
           ))}
         </tbody>
-      </table>[-]
+      </table>
 
       {/* Pagination Controls */}
       <div className="pagination">
