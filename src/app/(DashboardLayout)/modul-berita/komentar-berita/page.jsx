@@ -55,7 +55,7 @@ const KomentarBerita = () => {
 
   return (
     <div className="container mt-4">
-      <h2 className="h4 mb-4">Kategori Berita</h2>
+      <h2 className="h4 mb-4">Komentar Berita</h2>
       <div className="d-flex justify-content-between mb-2">
         <div>
           <label className="me-2">
@@ -92,8 +92,10 @@ const KomentarBerita = () => {
                   <td>{item.isikomentar}</td>
                   <td>{item.aktif}</td>
                   <td>
-                    <button className="btn btn-success btn-sm me-2">Edit</button>
-                    <button className="btn btn-danger btn-sm">Delete</button>
+                    <div className="d-flex justify-content-between">
+                      <button className="btn btn-success btn-sm me-2">Edit</button>
+                      <button className="btn btn-danger btn-sm">Delete</button>
+                    </div>
                   </td>
                 </tr>
               ))

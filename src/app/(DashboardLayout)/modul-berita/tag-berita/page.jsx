@@ -47,7 +47,7 @@ const PlaylistTable = () => {
 
   return (
     <div className="container mt-4">
-      <h2 className="h4 mb-4">Kategori Berita</h2>
+      <h2 className="h4 mb-4">Tag Berita</h2>
       <div className="d-flex justify-content-between mb-2">
         <div>
           <label className="me-2">
@@ -65,7 +65,7 @@ const PlaylistTable = () => {
             entries
           </label>
         </div>
-        <button className="btn btn-primary">Tag Berita</button>
+        <button className="btn btn-primary">Tambah Data</button>
       </div>
       <div className="table-responsive">
         <table className="table table-striped table-bordered">

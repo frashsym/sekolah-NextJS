@@ -13,8 +13,10 @@ const BeritaTable = () => {
 
   return (
     <div className="container">
-      <h2>Semua Berita</h2>
-      <button className="btn btn-primary">Tambahkan Data</button>
+      <div className="d-flex justify-content-between align-items-center">
+        <h2>Semua Berita</h2>
+        <button className="btn btn-primary">Tambahkan Data</button>
+      </div>
       <table className="table table-striped">
         <thead>
           <tr>
@@ -57,4 +59,3 @@ const BeritaTable = () => {
 };
 
 export default BeritaTable;
-
