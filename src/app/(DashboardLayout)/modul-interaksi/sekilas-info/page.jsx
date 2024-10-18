@@ -40,53 +40,54 @@ const SekilasInfoPage = () => {
     },
   ]);
 
+  const handleEdit = (id) => {
+    console.log(`Edit info dengan ID: ${id}`);
+  };
+
+  const handleDelete = (id) => {
+    console.log(`Hapus info dengan ID: ${id}`);
+    setInfoData(infoData.filter((item) => item.id !== id));
+  };
+
   return (
-    <div className="min-h-screen flex">
-      <main className="flex-1 bg-gray-100 p-8">
-        <section className="mt-8 bg-white shadow rounded-lg p-6">
-          <div className="flex justify-between items-center">
-            <h2 className="text-xl font-semibold">Sekilas Info</h2>
-            <button className="bg-primary text-white px-4 py-2 rounded">
-              Tambahkan Data
-            </button>
-          </div>
-          <table className="w-full mt-4 border-collapse">
-            <thead>
-              <tr className="bg-gray-200">
-                <th className="border py-2 px-4">No</th>
-                <th className="border py-2 px-4">Foto</th>
-                <th className="border py-2 px-4">Info</th>
-                <th className="border py-2 px-4">Aktif</th>
-                <th className="border py-2 px-4">Tanggal Posting</th>
-                <th className="border py-2 px-4">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {infoData.map((item, index) => (
-                <tr key={item.id}>
-                  <td className="border py-2 px-4 text-center">{index + 1}</td>
-                  <td className="border py-2 px-4 text-center">
-                    <img
-                      src={`/path/to/${item.foto}`}
-                      alt="Info Foto"
-                      className="w-16 h-16 object-cover"
-                    />
-                  </td>
-                  <td className="border py-2 px-4">{item.info}</td>
-                  <td className="border py-2 px-4 text-center">{item.aktif}</td>
-                  <td className="border py-2 px-4 text-center">
-                    {item.tanggal}
-                  </td>
-                  <td className="border py-2 px-4 text-center">
-                    <button className="text-green-500 mx-2">✎</button>
-                    <button className="text-red-500 mx-2">✖</button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </section>
-      </main>
+    <div>
+      <h2>Sekilas Info</h2>
+      <button className="btn btn-primary">Tambahkan Data</button>
+      <table className="table table-striped mt-3">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Foto</th>
+            <th>Info</th>
+            <th>Aktif</th>
+            <th>Tanggal Posting</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {infoData.map((item, index) => (
+            <tr key={item.id}>
+              <td>{index + 1}</td>
+              <td className="text-center">
+                <img
+                  src={`/path/to/${item.foto}`}
+                  alt="Info Foto"
+                  className="w-16 h-16 object-cover"
+                />
+              </td>
+              <td>{item.info}</td>
+              <td className="text-center">{item.aktif}</td>
+              <td className="text-center">{item.tanggal}</td>
+              <td className="text-center">
+                <div className="d-flex justify-content-center">
+                  <button onClick={() => handleEdit(item.id)} className="btn btn-success mx-2">Edit</button>
+                  <button onClick={() => handleDelete(item.id)} className="btn btn-danger mx-2">Hapus</button>
+                </div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
