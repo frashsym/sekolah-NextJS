@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Header from "@/app/(DashboardLayout)/layout/header/Header";
 import Sidebar from "@/app/(DashboardLayout)/layout/sidebar/Sidebar";
 import Footer from "./layout/footer/page";
+import { usePathname } from "next/navigation";
 
 const MainWrapper = styled("div")(() => ({
   display: "flex",
@@ -24,8 +25,6 @@ interface Props {
   children: React.ReactNode;
 }
 
-
-
 export default function RootLayout({
   children,
 }: {
@@ -33,16 +32,22 @@ export default function RootLayout({
 }) {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
   const [isMobileSidebarOpen, setMobileSidebarOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isAuthLoginPage = pathname === "/auth/login";
+
   return (
     <MainWrapper className="mainwrapper">
       {/* ------------------------------------------- */}
       {/* Sidebar */}
       {/* ------------------------------------------- */}
-      <Sidebar
-        isSidebarOpen={isSidebarOpen}
-        isMobileSidebarOpen={isMobileSidebarOpen}
-        onSidebarClose={() => setMobileSidebarOpen(false)}
-      />
+      {!isAuthLoginPage && (
+        <Sidebar
+          isSidebarOpen={isSidebarOpen}
+          isMobileSidebarOpen={isMobileSidebarOpen}
+          onSidebarClose={() => setMobileSidebarOpen(false)}
+        />
+      )}
       {/* ------------------------------------------- */}
       {/* Main Wrapper */}
       {/* ------------------------------------------- */}
@@ -50,7 +55,9 @@ export default function RootLayout({
         {/* ------------------------------------------- */}
         {/* Header */}
         {/* ------------------------------------------- */}
-        <Header toggleMobileSidebar={() => setMobileSidebarOpen(true)} />
+        {!isAuthLoginPage && (
+          <Header toggleMobileSidebar={() => setMobileSidebarOpen(true)} />
+        )}
         {/* ------------------------------------------- */}
         {/* PageContent */}
         {/* ------------------------------------------- */}
@@ -71,7 +78,7 @@ export default function RootLayout({
           {/* ------------------------------------------- */}
           {/* Footer */}
           {/* ------------------------------------------- */}
-          <Footer />
+          {!isAuthLoginPage && <Footer />}
         </Container>
       </PageWrapper>
     </MainWrapper>

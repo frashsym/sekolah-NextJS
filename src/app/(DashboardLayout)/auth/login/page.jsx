@@ -1,15 +1,30 @@
-'use client';
-import Link from 'next/link';
-import { useState } from 'react';
+"use client";
+import { API_Backend } from "../../../api/api.js";
+import React, { useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const router = useRouter(); // Inisialisasi router
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    // Add your login logic here
-    // For now, it simply redirects the user to the logout page
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Mencegah reload halaman
+
+    try {
+      await axios.post(`${API_Backend}/login`, { username, password });
+
+      // Jika login berhasil, arahkan ke halaman dashboard
+      if (response.status === 200) {
+        // Simpan token atau data pengguna jika diperlukan
+        localStorage.setItem("token", response.data.token);
+        router.push("/dashboard"); // Arahkan ke halaman dashboard
+      }
+    } catch (err) {
+      setError("Login failed. Please check your credentials."); // Tampilkan pesan error
+    }
   };
 
   return (
@@ -17,14 +32,14 @@ export default function LoginPage() {
       <div className="bg-white p-8 rounded-lg shadow-md w-96">
         <h2 className="text-2xl font-bold text-center mb-6">ADMIN Login</h2>
         <p className="text-center mb-4">Silahkan Login Pada Form Dibawah Ini</p>
-        <form onSubmit={handleLogin}>
+        <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-gray-700">Username</label>
             <div className="relative">
               <input
                 type="text"
                 className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                value={username}
+                placeholder="Masukan username..."
                 onChange={(e) => setUsername(e.target.value)}
                 required
               />
@@ -39,7 +54,7 @@ export default function LoginPage() {
               <input
                 type="password"
                 className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                value={password}
+                placeholder="Masukan password..."
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
@@ -48,23 +63,13 @@ export default function LoginPage() {
               </span>
             </div>
           </div>
-          <div className="flex items-center mb-4">
-            <input
-              type="checkbox"
-              className="mr-2"
-              id="remember"
-            />
-            <label htmlFor="remember" className="text-gray-700">Remember Me</label>
-          </div>
-          {/* Redirect to logout page after login */}
-          <Link href="/logout">
+          {/* Redirect to dashboard page after login */}
             <button
               type="submit"
-              className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
+              className="w-full bg-blue-500 text-black py-2 rounded-md hover:bg-blue-600"
             >
               Sign In
             </button>
-          </Link>
         </form>
         <div className="mt-4 text-center">
           <a href="#" className="text-blue-500 hover:underline">Anda Lupa Password?</a>

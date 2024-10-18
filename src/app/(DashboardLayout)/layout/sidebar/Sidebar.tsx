@@ -1,6 +1,7 @@
 import { useMediaQuery, Box, Drawer } from "@mui/material";
 import Logo from "../shared/logo/Logo";
 import SidebarItems from "./SidebarItems";
+import { usePathname } from "next/navigation";
 
 interface ItemType {
   isMobileSidebarOpen: boolean;
@@ -14,8 +15,14 @@ const Sidebar = ({
   isSidebarOpen,
 }: ItemType) => {
   const lgUp = useMediaQuery((theme: any) => theme.breakpoints.up("lg"));
+  const pathname = usePathname();
 
   const sidebarWidth = "280px";
+
+  // Cek apakah pathname adalah '/auth'
+  if (pathname === "/auth/login") {
+    return null; // Jika ya, tidak tampilkan sidebar
+  }
 
   if (lgUp) {
     return (
