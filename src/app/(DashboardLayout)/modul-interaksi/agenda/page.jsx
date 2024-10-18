@@ -26,46 +26,46 @@ const Dashboard = () => {
     },
   ]);
 
+  const handleEdit = (id) => {
+    console.log(`Edit agenda dengan ID: ${id}`);
+  };
+
+  const handleDelete = (id) => {
+    console.log(`Hapus agenda dengan ID: ${id}`);
+    setAgendas(agendas.filter((agenda) => agenda.id !== id));
+  };
+
   return (
-    <div className="min-h-screen flex">
-      <main className="flex-1 bg-gray-100 p-8">
-        <section className="mt-8 bg-white shadow rounded-lg p-6">
-          <div className="flex justify-between items-center">
-            <h2 className="text-xl font-semibold">Semua Agenda</h2>
-            <button className="bg-primary text-white px-4 py-2 rounded">
-              Tambahkan Data
-            </button>
-          </div>
-          <table className="w-full mt-4 border-collapse table-fixed">
-            {" "}
-            <thead>
-              <tr className="bg-gray-200">
-                <th className="border py-2 px-4 w-1/12">No</th>{" "}
-                <th className="border py-2 px-4 w-3/12">Tema</th>{" "}
-                <th className="border py-2 px-4 w-2/12">Tgl Mulai</th>{" "}
-                <th className="border py-2 px-4 w-2/12">Tgl Selesai</th>{" "}
-                <th className="border py-2 px-4 w-2/12">Jam</th>{" "}
-                <th className="border py-2 px-4 w-1/12">Action</th>{" "}
-              </tr>
-            </thead>
-            <tbody>
-              {agendas.map((agenda) => (
-                <tr key={agenda.id}>
-                  <td className="border py-2 px-4 text-center">{agenda.id}</td>
-                  <td className="border py-2 px-4">{agenda.tema}</td>
-                  <td className="border py-2 px-4">{agenda.start}</td>
-                  <td className="border py-2 px-4">{agenda.end}</td>
-                  <td className="border py-2 px-4">{agenda.time}</td>
-                  <td className="border py-2 px-4 text-center">
-                    <button className="text-green-500 mx-2">✎</button>
-                    <button className="text-red-500 mx-2">✖</button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </section>
-      </main>
+    <div>
+      <h2>Semua Agenda</h2>
+      <button className="btn btn-primary">Tambahkan Data</button>
+      <table className="table table-striped mt-3">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Tema</th>
+            <th>Tgl Mulai</th>
+            <th>Tgl Selesai</th>
+            <th>Jam</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {agendas.map((agenda, index) => (
+            <tr key={agenda.id}>
+              <td>{index + 1}</td>
+              <td>{agenda.tema}</td>
+              <td>{agenda.start}</td>
+              <td>{agenda.end}</td>
+              <td>{agenda.time}</td>
+              <td>
+                <button onClick={() => handleEdit(agenda.id)} className="btn btn-success mx-2">Edit</button>
+                <button onClick={() => handleDelete(agenda.id)} className="btn btn-danger mx-2">Hapus</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
