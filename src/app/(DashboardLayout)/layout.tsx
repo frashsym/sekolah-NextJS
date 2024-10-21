@@ -1,10 +1,12 @@
 "use client";
+import { GetServerSideProps } from 'next';
+import { parseCookies } from 'nookies';
 import { styled, Container, Box } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "@/app/(DashboardLayout)/layout/header/Header";
 import Sidebar from "@/app/(DashboardLayout)/layout/sidebar/Sidebar";
 import Footer from "./layout/footer/page";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const MainWrapper = styled("div")(() => ({
   display: "flex",
@@ -30,11 +32,20 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const router = useRouter();
+  useEffect(() => {
+    const cookies = parseCookies();
+    if (!cookies.token) {
+      router.push('/auth/login');
+    }
+  }, []);
+  
   const [isSidebarOpen, setSidebarOpen] = useState(true);
   const [isMobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const pathname = usePathname();
 
   const isAuthLoginPage = pathname === "/auth/login";
+
 
   return (
     <MainWrapper className="mainwrapper">
