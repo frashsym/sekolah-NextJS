@@ -45,7 +45,7 @@ const Menuitems = [
     icon: IoNewspaperOutline,
     href: "#",
     children: [
-      { id: uniqueId(), name: "Identitas", href: "/modul-berita/berita" },
+      { id: uniqueId(), name: "Berita", href: "/modul-berita/berita" },
       {
         id: uniqueId(),
         name: "Kategori Berita",
