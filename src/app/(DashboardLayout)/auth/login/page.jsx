@@ -2,11 +2,13 @@
 import { API_Backend } from "../../../api/api.js";
 import React, { useState } from "react";
 import axios from "axios";
+import { useCookies } from "react-cookie";
 import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [cookies, setCookie] = useCookies(["token"]);
   const [error, setError] = useState("");
   const router = useRouter(); // Inisialisasi router
 
@@ -14,16 +16,35 @@ export default function LoginPage() {
     e.preventDefault(); // Mencegah reload halaman
 
     try {
-      await axios.post(`${API_Backend}/login`, { username, password });
+      const response = await axios.post(`${API_Backend}/login`, { username, password }); // Menangkap respons
 
       // Jika login berhasil, arahkan ke halaman dashboard
       if (response.status === 200) {
-        // Simpan token atau data pengguna jika diperlukan
-        localStorage.setItem("token", response.data.token);
+        console.log("Login berhasil!");
+        // console.log("Token berhasil didapatkan : ", response.data);
+        setCookie("token", response.data.token, { path: "/" });
         router.push("/dashboard"); // Arahkan ke halaman dashboard
       }
     } catch (err) {
-      setError("Login failed. Please check your credentials."); // Tampilkan pesan error
+      if (err.response) {
+        // Server respons, tetapi ada status kode di luar kisaran 2xx
+        console.error("Respons kesalahan data:", err.response.data);
+        console.error("Respons kesalahan status:", err.response.status);
+        console.error("Respons kesalahan header:", err.response.headers);
+        setError(err.response.data.msg || "Terjadi kesalahan dengan server");
+      } else if (err.request) {
+        // Permintaan dibuat tetapi tidak ada respons
+        console.error("Permintaan yang dibuat tidak ada respons:", err.request);
+        setError(
+          "Tidak ada respons dari server. Periksa koneksi jaringan Anda atau coba lagi nanti."
+        );
+      } else {
+        // Sesuatu terjadi dalam pengaturan permintaan yang memicu kesalahan
+        console.error("Error:", err.message);
+        setError(
+          "Terjadi kesalahan saat mengatur permintaan. Silakan coba lagi."
+        );
+      }
     }
   };
 

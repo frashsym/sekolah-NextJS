@@ -208,7 +208,7 @@ const Menuitems = [
     id: uniqueId(),
     title: "Logout",
     icon: RiLogoutBoxLine,
-    href: "/logout",
+    href: "/auth/logout",
     align: "left",
   },
 ];
