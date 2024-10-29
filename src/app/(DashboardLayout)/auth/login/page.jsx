@@ -44,14 +44,14 @@ export default function LoginPage() {
           <title>Login - Admin System</title>
         </Head>
         <Card className="smooth-shadow-md">
-          <Card.Body className="p-6">
+          <Card.Body className="p-6 text-center">
             <div className="mb-4">
-              <h1>Admin Login</h1>
+              <h1 className="text-center">Admin Login</h1>
               <p className="mb-6">Masuk untuk mengelola sistem</p>
               {error && <p style={{ color: "red" }}>{error}</p>}
             </div>
             <Form onSubmit={handleSubmit}>
-              <Form.Group className="mb-3" controlId="username">
+              <Form.Group className="mb-3 text-start" controlId="username">
                 <Form.Label>Username</Form.Label>
                 <div className="input-group">
                   <span className="input-group-text d-flex align-items-center justify-content-center rounded">
@@ -68,7 +68,7 @@ export default function LoginPage() {
                 </div>
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="password">
+              <Form.Group className="mb-3 text-start" controlId="password">
                 <Form.Label>Password</Form.Label>
                 <div className="input-group">
                   <span className="input-group-text d-flex align-items-center justify-content-center rounded">
