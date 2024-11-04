@@ -24,7 +24,6 @@ const LandingPage = () => {
         backgroundColor: "white",
         boxShadow: isScrolled ? "0px 4px 8px rgba(0, 0, 0, 0.1)" : "none",
         padding: "1rem 0",
-        marginBottom: "1.5rem",
         position: isScrolled ? "fixed" : "relative",
         width: isScrolled ? "100%" : "auto",
         left: 0,
@@ -73,12 +72,12 @@ const LandingPage = () => {
       </div>
 
       {/* Navbar Section */}
-      <nav style={{ backgroundColor: "#1E3A8A", color: "white", padding: "1rem" }}>
+      <nav style={{ backgroundColor: "#1E3A8A", color: "white", padding: "0.5rem" }}>
         <ul
           style={{
             display: "flex",
             justifyContent: "center",
-            gap: "1.5rem",
+            gap: "1rem",
             listStyleType: "none",
           }}
         >
@@ -103,6 +102,7 @@ const LandingPage = () => {
                     color: "white",
                     textDecoration: "none",
                     transition: "color 0.3s",
+                    textAlign: "center",
                   }}
                   onMouseEnter={(e) => {
                     const dropdown = e.currentTarget.nextSibling;
@@ -166,7 +166,7 @@ const LandingPage = () => {
 
       {/* Sidebar */}
       <aside className="w-1/4">
-        <div className="bg-white p-6 mb-6 shadow-lg">
+        <div className="bg-white shadow-lg p-6">
           <h2 className="font-bold border-b-2 border-blue-600 mb-4">
             PROFILE SEKOLAH
           </h2>
