@@ -43,7 +43,7 @@ const TableWithPagination = () => {
 
   return (
     <div className="container">
-      <h2>Halaman Baru</h2>
+      <h2 style={{ display: 'inline-block', marginRight: '10px' }}>Halaman Baru</h2>
       <button className="btn btn-primary" style={{ float: 'right', marginBottom: '10px' }}>
         Tambah Data
       </button>
