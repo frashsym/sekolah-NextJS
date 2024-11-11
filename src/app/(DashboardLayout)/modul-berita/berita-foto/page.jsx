@@ -40,8 +40,8 @@ const BeritaFoto = () => {
 
   return (
     <div className="container mt-4">
-      <h2 className="h4 mb-4">Playlist</h2>
-      <div className="d-flex justify-content-between mb-2">
+      <h2 className="h4 mb-4 d-flex align-items-center">Playlist</h2>
+      <div className="d-flex justify-content-between mb-2 align-items-center">
         <div>
           <label className="me-2">
             Show
