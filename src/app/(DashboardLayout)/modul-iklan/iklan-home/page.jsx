@@ -10,7 +10,7 @@ const AdTable = () => {
       <h2 className="mb-3">Iklan Home</h2>
 
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <div>
+        <div className="d-flex align-items-center">
           <label>
             Show
             <select className="form-select d-inline-block mx-2 w-auto">
@@ -21,20 +21,17 @@ const AdTable = () => {
             </select>
             entries
           </label>
+          <input
+            type="text"
+            placeholder="Search"
+            className="form-control w-auto mx-2"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
         </div>
         <div>
           <button className="btn btn-primary">Tambahkan Data</button>
         </div>
-      </div>
-
-      <div className="d-flex justify-content-end mb-3">
-        <input
-          type="text"
-          placeholder="Search"
-          className="form-control w-auto"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
       </div>
 
       <table className="table table-striped table-bordered">

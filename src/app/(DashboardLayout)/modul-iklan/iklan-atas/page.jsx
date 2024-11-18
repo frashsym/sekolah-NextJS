@@ -27,8 +27,19 @@ const AdTable = () => {
     <div className="container mt-5">
       <h2 className="mb-4">Iklan Atas</h2>
 
-      <div className="mb-4">
-        <button className="btn btn-primary">Tambahkan Data</button>
+      <div className="mb-4 row">
+        <div className="col-md-6 text-start">
+          <input
+            type="text"
+            placeholder="Search"
+            className="form-control d-inline-block w-auto"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+        <div className="col-md-6 text-end">
+          <button className="btn btn-primary">Tambahkan Data</button>
+        </div>
       </div>
 
       <div className="mb-4 row">
@@ -40,15 +51,6 @@ const AdTable = () => {
             <option value="50">50</option>
           </select>
           <label> entries</label>
-        </div>
-        <div className="col-md-6 text-end">
-          <input
-            type="text"
-            placeholder="Search"
-            className="form-control d-inline-block w-auto"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
         </div>
       </div>
 

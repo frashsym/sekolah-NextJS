@@ -25,12 +25,11 @@ const IklanSidebar = () => {
     <div className="container mt-5">
       <h2 className="mb-4">Iklan Sidebar</h2>
 
-      <div className="mb-4">
-        <button className="btn btn-primary">Tambahkan Data</button>
-      </div>
-
       <div className="mb-4 row">
-        <div className="col-md-6">
+        <div className="col-md-6 text-start">
+          <div className="mb-4">
+            <button className="btn btn-primary">Tambahkan Data</button>
+          </div>
           <label>Show </label>
           <select className="form-select d-inline-block w-auto">
             <option value="10">10</option>
