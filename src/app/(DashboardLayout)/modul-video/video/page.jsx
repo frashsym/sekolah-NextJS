@@ -60,8 +60,10 @@ const VideoTable = () => {
 
   return (
     <div>
-      <h2>Semua Video</h2>
-      <button type="button" className="btn btn-primary">Tambahkan Data</button>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <h2 style={{ marginBottom: 0 }}>Semua Video</h2>
+        <button type="button" className="btn btn-primary">Tambahkan Data</button>
+      </div>
       <table className="table table-striped">
         <thead>
           <tr>

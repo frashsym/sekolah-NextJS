@@ -19,8 +19,10 @@ const TagVideo = () => {
 
   return (
     <div>
-      <h2>Tag Video</h2>
-      <button type="button" className="btn btn-primary mb-3">Tambahkan Data</button>
+      <div className="d-flex justify-content-between align-items-center mb-3">
+        <h2>Tag Video</h2>
+        <button type="button" className="btn btn-primary">Tambahkan Data</button>
+      </div>
       <table className="table table-striped">
         <thead>
           <tr>

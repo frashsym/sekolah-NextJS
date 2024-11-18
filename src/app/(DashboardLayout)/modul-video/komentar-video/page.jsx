@@ -47,7 +47,10 @@ const KomentarVideo = () => {
   return (
     <div>
       <h2>Komentar Video</h2>
-      <button type="button" className="btn btn-primary mb-3">Tambahkan Data</button>
+      <div className="d-flex justify-content-between mb-3">
+        <h2>Komentar Video</h2>
+        <button type="button" className="btn btn-primary">Tambahkan Data</button>
+      </div>
       <table className="table table-striped">
         <thead>
           <tr>
@@ -66,8 +69,10 @@ const KomentarVideo = () => {
               <td>{comment.isi}</td>
               <td>{comment.aktif}</td>
               <td>
-                <button onClick={() => handleEdit(comment.no)} className="btn btn-success mx-1">Edit</button>
-                <button onClick={() => handleDelete(comment.no)} className="btn btn-danger mx-1">Hapus</button>
+                <div className="d-flex">
+                  <button onClick={() => handleEdit(comment.no)} className="btn btn-success mx-1">Edit</button>
+                  <button onClick={() => handleDelete(comment.no)} className="btn btn-danger mx-1">Hapus</button>
+                </div>
               </td>
             </tr>
           ))}
