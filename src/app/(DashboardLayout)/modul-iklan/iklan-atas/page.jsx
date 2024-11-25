@@ -28,6 +28,15 @@ const AdTable = () => {
       <h2 className="mb-4">Iklan Atas</h2>
 
       <div className="mb-4 row">
+        <div className="col-md-6">
+          <label>Show </label>
+          <select className="form-select d-inline-block w-auto">
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+          </select>
+          <label> entries</label>
+        </div>
         <div className="col-md-6 text-start">
           <input
             type="text"
@@ -37,20 +46,11 @@ const AdTable = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
-        <div className="col-md-6 text-end">
-          <button className="btn btn-primary">Tambahkan Data</button>
-        </div>
       </div>
 
       <div className="mb-4 row">
-        <div className="col-md-6">
-          <label>Show </label>
-          <select className="form-select d-inline-block w-auto">
-            <option value="10">10</option>
-            <option value="25">25</option>
-            <option value="50">50</option>
-          </select>
-          <label> entries</label>
+        <div className="col-md-6 text-end">
+          <button className="btn btn-primary">Tambahkan Data</button>
         </div>
       </div>
 

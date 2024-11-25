@@ -58,6 +58,7 @@ const BannerLink = () => {
           <label> entries</label>
         </div>
         <div className="col-md-6 text-end">
+          <button className="btn btn-primary me-2">Tambahkan Data</button>
           <input
             type="text"
             placeholder="Search"

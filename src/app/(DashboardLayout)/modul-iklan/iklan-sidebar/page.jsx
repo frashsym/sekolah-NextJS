@@ -27,9 +27,6 @@ const IklanSidebar = () => {
 
       <div className="mb-4 row">
         <div className="col-md-6 text-start">
-          <div className="mb-4">
-            <button className="btn btn-primary">Tambahkan Data</button>
-          </div>
           <label>Show </label>
           <select className="form-select d-inline-block w-auto">
             <option value="10">10</option>
@@ -37,13 +34,14 @@ const IklanSidebar = () => {
             <option value="50">50</option>
           </select>
           <label> entries</label>
-        </div>
-        <div className="col-md-6 text-end">
           <input
             type="text"
             placeholder="Search"
-            className="form-control d-inline-block w-auto"
+            className="form-control d-inline-block w-auto me-4"
           />
+        </div>
+        <div className="col-md-6 text-end">
+          <button className="btn btn-primary">Tambahkan Data</button>
         </div>
       </div>
 
