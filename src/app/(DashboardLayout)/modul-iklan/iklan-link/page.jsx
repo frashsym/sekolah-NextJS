@@ -43,9 +43,11 @@ const BannerLink = () => {
     <div className="container mt-5">
       <h2 className="mb-4">Banner Link</h2>
 
-      <div className="mb-4">
-        <button className="btn btn-primary">Tambahkan Data</button>
-      </div>
+      <input
+        type="text"
+        placeholder="Search"
+        className="form-control mb-4 w-auto"
+      />
 
       <div className="mb-4 row">
         <div className="col-md-6">
@@ -59,11 +61,6 @@ const BannerLink = () => {
         </div>
         <div className="col-md-6 text-end">
           <button className="btn btn-primary me-2">Tambahkan Data</button>
-          <input
-            type="text"
-            placeholder="Search"
-            className="form-control d-inline-block w-auto"
-          />
         </div>
       </div>
 
