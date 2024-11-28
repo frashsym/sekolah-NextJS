@@ -13,15 +13,15 @@ const Dashboard = () => {
   ]);
 
   return (
-    <div className="dashboard-container" style={{ padding: '20px', backgroundColor: '#f8f9fa' }}>
+    <div className="dashboard-container" style={{ padding: '20px', backgroundColor: '#f8f9fa', border: 'none' }}>
       
-      <div className="card mt-4">
+      <div className="card mt-4" style={{ border: 'none' }}>
         <div className="card-header">
           <h5>Template Website</h5>
           <button className="btn btn-primary" style={{ float: 'right' }}>Tambahkan Data</button>
         </div>
         
-        <div className="card-body">
+        <div className="card-body" style={{ border: 'none' }}>
           <div className="mb-3">
             <label htmlFor="entries" className="form-label">Show</label>
             <select id="entries" className="form-select" style={{ display: 'inline', width: '80px', marginLeft: '10px' }}>
@@ -32,7 +32,7 @@ const Dashboard = () => {
             <span> entries</span>
           </div>
 
-          <table className="table table-bordered">
+          <table className="table" style={{ border: 'none' }}>
             <thead>
               <tr>
                 <th>No</th>
