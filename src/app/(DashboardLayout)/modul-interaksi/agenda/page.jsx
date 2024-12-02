@@ -37,8 +37,10 @@ const Dashboard = () => {
 
   return (
     <div>
-      <h2>Semua Agenda</h2>
-      <button className="btn btn-primary">Tambahkan Data</button>
+      <div className="d-flex justify-content-between align-items-center">
+        <h2>Semua Agenda</h2>
+        <button className="btn btn-primary">Tambahkan Data</button>
+      </div>
       <table className="table table-striped mt-3">
         <thead>
           <tr>
