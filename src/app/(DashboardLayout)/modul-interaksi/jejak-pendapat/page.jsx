@@ -60,7 +60,9 @@ const PollingPage = () => {
   return (
     <div>
       <h2>Polling / Jajak Pendapat</h2>
-      <button className="btn btn-primary">Tambahkan Data</button>
+      <div className="d-flex justify-content-end mb-3">
+        <button className="btn btn-primary">Tambahkan Data</button>
+      </div>
       <table className="table table-striped mt-3">
         <thead>
           <tr>
