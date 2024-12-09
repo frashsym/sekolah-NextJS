@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Dashboard = () => {
   const [data, setData] = useState([
@@ -76,63 +76,58 @@ const Dashboard = () => {
   ]);
 
   const handleEdit = (id) => {
-    console.log(`Edit item with id: ${id}`);
+    console.log(`Edit item dengan ID: ${id}`);
   };
 
   const handleDelete = (id) => {
-    console.log(`Delete item with id: ${id}`);
+    console.log(`Hapus item dengan ID: ${id}`);
     setData(data.filter((item) => item.id !== id));
   };
 
   return (
-    <div className="dashboard px-4">
-      <h1 className="text-2xl font-bold mb-4">Dashboard</h1>
-      <h2 className="text-xl mb-4">Download File</h2>
-      <button className="bg-primary text-white py-2 px-4 rounded mb-4">
-        Tambahkan Data
-      </button>
-      <table className="w-full border border-gray-300 border-collapse">
+    <div>
+      <h2>Dashboard</h2>
+      <div className="d-flex justify-content-end mb-3">
+        <button className="btn btn-primary">Tambahkan Data</button>
+      </div>
+      <table className="table table-striped mt-3">
         <thead>
           <tr>
-            <th className="border border-gray-300 px-4 py-2">No</th>
-            <th className="border border-gray-300 px-4 py-2">Judul</th>
-            <th className="border border-gray-300 px-4 py-2">Link</th>
-            <th className="border border-gray-300 px-4 py-2">Hits</th>
-            <th className="border border-gray-300 px-4 py-2">Tanggal</th>
-            <th className="border border-gray-300 px-4 py-2">Action</th>
+            <th>No</th>
+            <th>Judul</th>
+            <th>Link</th>
+            <th>Hits</th>
+            <th>Tanggal</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
           {data.map((item, index) => (
             <tr key={item.id}>
-              <td className="border border-gray-300 px-4 py-2 text-center">
-                {index + 1}
-              </td>
-              <td className="border border-gray-300 px-4 py-2">{item.judul}</td>
-              <td className="border border-gray-300 px-4 py-2">
-                <a href="#" className="text-blue-600 underline">
+              <td>{index + 1}</td>
+              <td>{item.judul}</td>
+              <td>
+                <a href="#" className="text-primary">
                   {item.link}
                 </a>
               </td>
-              <td className="border border-gray-300 px-4 py-2 text-center">
-                {item.hits}
-              </td>
-              <td className="border border-gray-300 px-4 py-2 text-center">
-                {item.tanggal}
-              </td>
-              <td className="border border-gray-300 px-4 py-2 text-center">
-                <button
-                  className="bg-success text-white py-1 px-3 rounded mr-2"
-                  onClick={() => handleEdit(item.id)}
-                >
-                  Edit
-                </button>
-                <button
-                  className="bg-danger text-white py-1 px-3 rounded"
-                  onClick={() => handleDelete(item.id)}
-                >
-                  Delete
-                </button>
+              <td className="text-center">{item.hits}</td>
+              <td className="text-center">{item.tanggal}</td>
+              <td className="text-center">
+                <div className="d-flex justify-content-center">
+                  <button
+                    onClick={() => handleEdit(item.id)}
+                    className="btn btn-success mx-2"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={() => handleDelete(item.id)}
+                    className="btn btn-danger mx-2"
+                  >
+                    Hapus
+                  </button>
+                </div>
               </td>
             </tr>
           ))}
