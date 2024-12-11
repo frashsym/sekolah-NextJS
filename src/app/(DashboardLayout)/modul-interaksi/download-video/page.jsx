@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-const Dashboard = () => {
+const Download = () => {
   const [data, setData] = useState([
     {
       id: 1,
@@ -86,7 +86,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <h2>Dashboard</h2>
+      <h2>Download Video</h2>
       <div className="d-flex justify-content-end mb-3">
         <button className="btn btn-primary">Tambahkan Data</button>
       </div>
@@ -137,4 +137,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Download;
