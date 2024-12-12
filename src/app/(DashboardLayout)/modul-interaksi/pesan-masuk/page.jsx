@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const PesanMasuk = () => {
   const [messages, setMessages] = useState([
@@ -41,21 +41,22 @@ const PesanMasuk = () => {
   ]);
 
   const handleReply = (id) => {
-    // Logika untuk membalas pesan
     console.log(`Reply to message with id: ${id}`);
   };
 
   const handleDelete = (id) => {
-    // Logika untuk menghapus pesan
     console.log(`Delete message with id: ${id}`);
     setMessages(messages.filter((message) => message.id !== id));
   };
 
   return (
-    <div className="pesan-masuk container my-4">
-      <h2 className="mb-2">Pesan Masuk</h2>
-      <table className="table table-bordered">
-        <thead className="table-light">
+    <div>
+      <h2>Pesan Masuk</h2>
+      <div className="d-flex justify-content-end mb-3">
+        <button className="btn btn-primary">Tambahkan Data</button>
+      </div>
+      <table className="table table-striped mt-3">
+        <thead>
           <tr>
             <th>No</th>
             <th>Nama</th>
@@ -72,20 +73,22 @@ const PesanMasuk = () => {
               <td>{message.nama}</td>
               <td>{message.email}</td>
               <td>{message.subjek}</td>
-              <td>{message.tanggal}</td>
-              <td>
-                <button
-                  className="btn btn-success me-2"
-                  onClick={() => handleReply(message.id)}
-                >
-                  Reply
-                </button>
-                <button
-                  className="btn btn-danger"
-                  onClick={() => handleDelete(message.id)}
-                >
-                  Delete
-                </button>
+              <td className="text-center">{message.tanggal}</td>
+              <td className="text-center">
+                <div className="d-flex justify-content-center">
+                  <button
+                    onClick={() => handleReply(message.id)}
+                    className="btn btn-success mx-2"
+                  >
+                    Reply
+                  </button>
+                  <button
+                    onClick={() => handleDelete(message.id)}
+                    className="btn btn-danger mx-2"
+                  >
+                    Hapus
+                  </button>
+                </div>
               </td>
             </tr>
           ))}
