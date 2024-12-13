@@ -33,7 +33,7 @@ const ManajemenModul = () => {
 
   return (
     <div className="container">
-      <div className="d-flex justify-content-between align-items-center my-3">
+      <div className="d-flex justify-content-between align-items-center my-3" style={{ marginTop: '10px' }}>
         <h2>Manajemen Modul</h2>
         <Button variant="primary">Tambahkan Data</Button>
       </div>
