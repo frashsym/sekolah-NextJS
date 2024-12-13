@@ -28,8 +28,10 @@ const AnnouncementTable = () => {
 
   return (
     <div className="container mt-5">
-      <h2>Data Pengumuman</h2>
-      <button className="btn btn-primary mb-3">Tambahkan Data</button>
+      <div className="d-flex justify-content-between align-items-center mb-3">
+        <h2>Data Pengumuman</h2>
+        <button className="btn btn-primary">Tambahkan Data</button>
+      </div>
       <div className="table-responsive">
         <table className="table table-bordered">
           <thead>
